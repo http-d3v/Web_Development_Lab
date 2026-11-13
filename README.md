@@ -11,8 +11,8 @@ This repository maintains separate, working, production-quality projects for eve
 | Exp # | Experiment Title | Core Technologies | Status | Directory |
 |:---:|:---|:---|:---:|:---|
 | **02** | **Personal Portfolio Website** | HTML5, CSS3, Flexbox, Grid | ✅ **Completed** | [`Exp_02_Portfolio/`](./Exp_02_Portfolio/) |
-| **03** | **Interactive To-Do List Application** | HTML, CSS, JavaScript, DOM, LocalStorage | ⏳ Next Up | `Exp_03_Todo/` |
-| **04** | **SEO & Accessibility Audit & Overhaul** | Semantic HTML5, WCAG 2.1, ARIA, Meta Tags | ⏳ Upcoming | `Exp_04_SEO_Accessibility/` |
+| **03** | **Interactive To-Do List Application** | HTML, CSS, JavaScript, DOM, LocalStorage | ✅ **Completed** | [`Exp_03_Todo/`](./Exp_03_Todo/) |
+| **04** | **SEO & Accessibility Audit & Overhaul** | Semantic HTML5, WCAG 2.1, ARIA, Meta Tags | ⏳ Next Up | `Exp_04_SEO_Accessibility/` |
 | **05** | **Real-Time Weather Web App** | HTML, CSS, JavaScript, Fetch API | ⏳ Upcoming | `Exp_05_Weather/` |
 | **06** | **Responsive Blog Platform** | HTML, CSS, Bootstrap 5, Media Queries | ⏳ Upcoming | `Exp_06_Responsive_Blog/` |
 | **07** | **React Notes Single Page Application** | React, Vite, Functional Components, Hooks | ⏳ Upcoming | `Exp_07_React_Notes/` |
@@ -39,4 +39,5 @@ This repository maintains separate, working, production-quality projects for eve
 
 ## 🚀 Live Demonstrations
 - **Exp 02 (Personal Portfolio):** [https://exp-02-portfolio.vercel.app](https://exp-02-portfolio.vercel.app)
+- **Exp 03 (Interactive To-Do List):** [https://exp-03-todo.vercel.app](https://exp-03-todo.vercel.app)
 - **GitHub Repository:** [https://github.com/http-d3v/Web_Development_Lab](https://github.com/http-d3v/Web_Development_Lab)
