@@ -1,0 +1,409 @@
+/* ==========================================================================
+   EXPERIMENT 06: RESPONSIVE BLOG PLATFORM
+   Student: Dev Kumar Tiwari (http-d3v)
+   Course: B.Tech Computer Science & Engineering - Web Development Lab
+   Design System: Warm Cream & Charcoal Minimalist + Bootstrap 5
+   Base: #FDFBF7 | Surface: #F4EFE6 | Charcoal: #2C2522 | Terracotta: #A25E3E
+   ========================================================================== */
+
+:root {
+  --bg-base: #FDFBF7;
+  --bg-surface: #F4EFE6;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F8F4ED;
+
+  --text-primary: #2C2522;
+  --text-secondary: #584C45;
+  --text-muted: #887B72;
+
+  --accent: #A25E3E;
+  --accent-hover: #864A2E;
+  --accent-green: #3A5B44;
+  --accent-gold: #B88338;
+
+  --border-light: #E2D7C8;
+  --border-subtle: #ECE4D8;
+
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-editorial: 'Newsreader', Georgia, serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Academic Bar
+   -------------------------------------------------------------------------- */
+.academic-bar {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.8125rem;
+  padding: 0.45rem 0;
+  color: var(--text-secondary);
+}
+
+.bar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bar-link:hover {
+  text-decoration: underline;
+}
+
+.bar-sep {
+  color: var(--border-light);
+}
+
+/* --------------------------------------------------------------------------
+   Navbar Customization
+   -------------------------------------------------------------------------- */
+.site-navbar {
+  background-color: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.85rem 0;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: var(--text-primary);
+  color: var(--bg-base);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.45rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent) !important;
+}
+
+.search-input {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  width: 190px;
+  transition: width 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(162, 94, 62, 0.12);
+  width: 230px;
+}
+
+/* --------------------------------------------------------------------------
+   Featured Hero Card
+   -------------------------------------------------------------------------- */
+.featured-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light) !important;
+  border-radius: 12px;
+}
+
+.category-badge {
+  background-color: #F8ECE4;
+  color: var(--accent);
+  border: 1px solid #ECD3C4;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
+
+.reading-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.featured-title {
+  font-family: var(--font-editorial);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.author-avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.author-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.featured-art-wrap img {
+  border: 1px solid var(--border-light);
+  max-height: 250px;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Filter Pills Bar
+   -------------------------------------------------------------------------- */
+.filter-pills-bar {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1rem;
+}
+
+.pill-btn {
+  background: none;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background-color: #ECE3D4;
+  color: var(--text-primary);
+}
+
+.pill-btn.active {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  border-color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Blog Cards Grid
+   -------------------------------------------------------------------------- */
+.post-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light) !important;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(44, 37, 34, 0.08) !important;
+  border-color: #D6C8B5 !important;
+}
+
+.post-thumb-wrap {
+  position: relative;
+  height: 180px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.post-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-tag-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(44, 37, 34, 0.85);
+  color: #FDFBF7;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.post-title {
+  font-family: var(--font-editorial);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.post-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.author-tiny {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons Customization
+   -------------------------------------------------------------------------- */
+.btn-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.btn-outline-primary {
+  color: var(--accent) !important;
+  border-color: var(--border-light) !important;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-light) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar Components
+   -------------------------------------------------------------------------- */
+.author-sidebar-card, .newsletter-card, .tags-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light) !important;
+  border-radius: 10px;
+}
+
+.author-avatar-lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebar-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.sidebar-link:hover {
+  text-decoration: underline;
+}
+
+.newsletter-badge {
+  background-color: #EDF5F0;
+  color: var(--accent-green);
+  border: 1px solid #C8E0D1;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.tag-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Modal Reader
+   -------------------------------------------------------------------------- */
+.modal-content {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border-light);
+}
+
+.article-modal-content {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.article-modal-content p {
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-light);
+}

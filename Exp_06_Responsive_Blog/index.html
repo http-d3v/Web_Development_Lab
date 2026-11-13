@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experiment 06: Responsive Engineering & Technology Blog platform built with Bootstrap 5, semantic HTML5, and custom CSS3 media queries." />
+  <meta name="author" content="Dev Kumar Tiwari" />
+  <title>The Engineering Column | B.Tech Web Dev Lab — Exp 06</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Bootstrap 5 CSS (Production CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+
+  <!-- Custom Stylesheet Overriding Bootstrap with Warm Student Palette -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= Academic Header Bar ================= -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <span>🎓 Web Development Lab &bull; <strong>Experiment 06: Responsive Blog Platform (Bootstrap 5)</strong></span>
+      <div class="bar-links">
+        <a href="../index.html" class="bar-link">&larr; Lab Index</a>
+        <span class="bar-sep">|</span>
+        <a href="https://exp-05-weather.vercel.app" target="_blank" rel="noopener noreferrer" class="bar-link">Exp 05: Weather &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= Bootstrap Responsive Navbar ================= -->
+  <nav class="navbar navbar-expand-lg sticky-top site-navbar" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-wrap" href="#top">
+        <span class="brand-monogram">EC</span>
+        <div class="brand-text">
+          <span class="brand-name">The Engineering Column</span>
+          <span class="brand-sub">Computer Science &amp; Developer Notes</span>
+        </div>
+      </a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav Links & Search Box -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item">
+            <a class="nav-link nav-filter active" href="#" data-category="all">All Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-filter" href="#" data-category="web">Web Tech</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-filter" href="#" data-category="cloud">Cloud &amp; DevOps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-filter" href="#" data-category="ai">AI &amp; Systems</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-filter" href="#" data-category="campus">Campus Insights</a>
+          </li>
+        </ul>
+
+        <!-- Article Search Input -->
+        <form class="d-flex align-items-center search-bar" id="blogSearchForm" role="search">
+          <input class="form-control form-control-sm search-input" id="articleSearchInput" type="search" placeholder="Search articles..." aria-label="Search" />
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= Main Page Content ================= -->
+  <main class="py-5" id="main-content">
+    <div class="container">
+      
+      <!-- Featured Editorial Hero Card -->
+      <section class="featured-section mb-5" aria-label="Featured Story">
+        <div class="card featured-card shadow-sm border-0 overflow-hidden">
+          <div class="row g-0 align-items-center">
+            <div class="col-lg-7 p-4 p-md-5">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <span class="badge category-badge">Featured Analysis</span>
+                <span class="reading-time">&bull; 6 min read &bull; Nov 12, 2026</span>
+              </div>
+              <h1 class="featured-title">Modern CSS Layouts: How CSS Grid &amp; Subgrid Reshaped Student Web Projects</h1>
+              <p class="featured-excerpt text-secondary mb-4">
+                Moving past heavy layout libraries and floats: an exploration of modern CSS Grid architectures, subgrid alignment, responsive container queries, and how understanding native browser rendering makes student portfolios lightning fast.
+              </p>
+              <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="author-avatar-sm">DT</div>
+                  <div>
+                    <span class="author-name d-block">Dev Kumar Tiwari</span>
+                    <span class="author-role text-muted small">3rd Year CSE Undergraduate</span>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary read-post-btn" data-post="featured">
+                  Read Full Story &rarr;
+                </button>
+              </div>
+            </div>
+
+            <div class="col-lg-5 p-4 p-lg-0 text-center">
+              <div class="featured-art-wrap">
+                <img src="assets/thumb-web.svg" alt="Abstract architectural illustration of CSS Grid and Flexbox nesting" class="img-fluid rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Two-Column Layout (Posts Grid on Left, Sidebar on Right) -->
+      <div class="row g-4">
+        
+        <!-- Left: Blog Posts Grid -->
+        <div class="col-lg-8">
+          
+          <!-- Category Filter Pills Bar -->
+          <div class="filter-pills-bar d-flex align-items-center gap-2 mb-4 flex-wrap">
+            <span class="filter-label small text-muted text-uppercase fw-bold">Filter By Topic:</span>
+            <button class="pill-btn active" data-category="all">All Topics (4)</button>
+            <button class="pill-btn" data-category="web">Web Tech (2)</button>
+            <button class="pill-btn" data-category="cloud">Cloud (1)</button>
+            <button class="pill-btn" data-category="ai">AI &amp; Systems (1)</button>
+            <button class="pill-btn" data-category="campus">Campus Insights (1)</button>
+          </div>
+
+          <!-- Active Filter Alert -->
+          <div id="filterStatus" class="small text-muted mb-3" style="display: none;"></div>
+
+          <!-- Post Cards Grid -->
+          <div class="row g-4" id="postsGrid">
+            
+            <!-- Card 1: Web Tech -->
+            <div class="col-md-6 post-col" data-category="web" data-title="Understanding Asynchronous JavaScript: Promises, Async/Await, and Event Loop Mechanics">
+              <article class="card h-100 post-card shadow-sm border-0">
+                <div class="post-thumb-wrap">
+                  <img src="assets/thumb-web.svg" class="card-img-top post-thumb" alt="JavaScript asynchronous event loop illustration" />
+                  <span class="badge post-tag-badge">Web Tech</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="post-meta small text-muted mb-2">Nov 08, 2026 &bull; 5 min read</div>
+                  <h2 class="card-title post-title">Understanding Asynchronous JavaScript: Promises, Async/Await, and Event Loop</h2>
+                  <p class="card-text post-desc text-secondary mb-4 flex-grow-1">
+                    A foundational guide to why JavaScript is single-threaded, how the call stack interacts with the Web API microtask queue, and writing clean asynchronous code.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                    <span class="author-tiny">By Dev Kumar Tiwari</span>
+                    <button class="btn btn-sm btn-outline-primary read-post-btn" data-post="post-1">Read Article &rarr;</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Card 2: Cloud & DevOps -->
+            <div class="col-md-6 post-col" data-category="cloud" data-title="Zero-Downtime Static Deployments: How Modern Edge Networks and CDNs Serve Web Apps">
+              <article class="card h-100 post-card shadow-sm border-0">
+                <div class="post-thumb-wrap">
+                  <img src="assets/thumb-cloud.svg" class="card-img-top post-thumb" alt="Distributed cloud edge servers illustration" />
+                  <span class="badge post-tag-badge">Cloud</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="post-meta small text-muted mb-2">Nov 02, 2026 &bull; 7 min read</div>
+                  <h2 class="card-title post-title">Zero-Downtime Deployments: How Modern Edge CDNs Serve Web Applications</h2>
+                  <p class="card-text post-desc text-secondary mb-4 flex-grow-1">
+                    Analyzing continuous integration pipelines, serverless functions, atomic deployments on Vercel, and cache invalidation strategies for student developers.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                    <span class="author-tiny">By Dev Kumar Tiwari</span>
+                    <button class="btn btn-sm btn-outline-primary read-post-btn" data-post="post-2">Read Article &rarr;</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Card 3: AI & Systems -->
+            <div class="col-md-6 post-col" data-category="ai" data-title="Demystifying Graph Traversal Algorithms: BFS, DFS, and Dijkstra in C++ STL">
+              <article class="card h-100 post-card shadow-sm border-0">
+                <div class="post-thumb-wrap">
+                  <img src="assets/thumb-ai.svg" class="card-img-top post-thumb" alt="Graph nodes and shortest path algorithmic traversal" />
+                  <span class="badge post-tag-badge">AI &amp; Systems</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="post-meta small text-muted mb-2">Oct 28, 2026 &bull; 8 min read</div>
+                  <h2 class="card-title post-title">Demystifying Graph Traversal: BFS, DFS, and Shortest Paths in C++ STL</h2>
+                  <p class="card-text post-desc text-secondary mb-4 flex-grow-1">
+                    Translating theoretical data structure concepts into clean, optimal C++ code. Adjacency lists, priority queues, and time complexity trade-offs explained.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                    <span class="author-tiny">By Dev Kumar Tiwari</span>
+                    <button class="btn btn-sm btn-outline-primary read-post-btn" data-post="post-3">Read Article &rarr;</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Card 4: Campus Insights -->
+            <div class="col-md-6 post-col" data-category="campus" data-title="Engineering Undergraduate Roadmap: Balancing Academic CGPA, Lab Work, and Open Source">
+              <article class="card h-100 post-card shadow-sm border-0">
+                <div class="post-thumb-wrap">
+                  <img src="assets/thumb-career.svg" class="card-img-top post-thumb" alt="Engineering academic milestones and career steps" />
+                  <span class="badge post-tag-badge">Campus Insights</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                  <div class="post-meta small text-muted mb-2">Oct 19, 2026 &bull; 4 min read</div>
+                  <h2 class="card-title post-title">Undergraduate Roadmap: Balancing College CGPA, Practical Labs, and Git Projects</h2>
+                  <p class="card-text post-desc text-secondary mb-4 flex-grow-1">
+                    Practical takeaways from the 3rd year of B.Tech CSE on managing assignment deadlines, collaborating on college projects, and building real portfolio proof.
+                  </p>
+                  <div class="d-flex align-items-center justify-content-between pt-3 border-top">
+                    <span class="author-tiny">By Dev Kumar Tiwari</span>
+                    <button class="btn btn-sm btn-outline-primary read-post-btn" data-post="post-4">Read Article &rarr;</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+          <!-- Empty Search State -->
+          <div id="noPostsFound" class="card text-center p-5 border-0 shadow-sm" style="display: none;">
+            <div class="fs-1 mb-2">🔍</div>
+            <h3 class="h5 fw-bold">No matching articles found</h3>
+            <p class="text-secondary small mb-0">Try searching for keywords like "JavaScript", "Grid", "Cloud", or "C++".</p>
+          </div>
+        </div>
+
+        <!-- Right: Sidebar Column -->
+        <div class="col-lg-4">
+          <div class="sidebar-wrap d-flex flex-column gap-4">
+            
+            <!-- Author Profile Card -->
+            <div class="card author-sidebar-card shadow-sm border-0 p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="author-avatar-lg">DT</div>
+                <div>
+                  <h3 class="author-name-lg h6 mb-1">Dev Kumar Tiwari</h3>
+                  <span class="author-role-sub text-muted small">Student Author &bull; B.Tech CSE</span>
+                </div>
+              </div>
+              <p class="author-bio text-secondary small mb-3">
+                Undergraduate software engineer passionate about clean web architectures, data structures, and building accessible software tools.
+              </p>
+              <div class="author-links d-flex gap-3">
+                <a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer" class="sidebar-link">GitHub</a>
+                <span class="text-muted">&bull;</span>
+                <a href="https://exp-02-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" class="sidebar-link">Portfolio</a>
+              </div>
+            </div>
+
+            <!-- Newsletter Subscription Card -->
+            <div class="card newsletter-card shadow-sm border-0 p-4">
+              <span class="badge newsletter-badge mb-2 align-self-start">Monthly Digest</span>
+              <h3 class="h6 fw-bold mb-2">The Undergraduate Gazette</h3>
+              <p class="small text-secondary mb-3">
+                Receive curated articles on web technology, algorithm breakdowns, and engineering lab walkthroughs.
+              </p>
+              <form id="newsletterForm" novalidate>
+                <div class="mb-2">
+                  <label for="newsletterEmail" class="visually-hidden">Email Address</label>
+                  <input type="email" class="form-control form-control-sm" id="newsletterEmail" placeholder="your.email@college.edu" required />
+                  <div class="invalid-feedback small">Please provide a valid email address.</div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary w-100">Subscribe for Updates</button>
+              </form>
+              <div class="alert alert-success small mt-2 py-2 mb-0" id="newsletterSuccess" style="display: none;" role="alert">
+                ✓ Thank you! You've been subscribed.
+              </div>
+            </div>
+
+            <!-- Popular Tags Cloud -->
+            <div class="card tags-card shadow-sm border-0 p-4">
+              <h3 class="h6 fw-bold mb-3">Topic Cloud</h3>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tag-pill">#Bootstrap5</span>
+                <span class="tag-pill">#HTML5</span>
+                <span class="tag-pill">#CSSGrid</span>
+                <span class="tag-pill">#JavaScript</span>
+                <span class="tag-pill">#Algorithms</span>
+                <span class="tag-pill">#DevOps</span>
+                <span class="tag-pill">#WebStandards</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= Article Reader Modal ================= -->
+  <div class="modal fade" id="articleModal" tabindex="-1" aria-labelledby="modalPostTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow">
+        <div class="modal-header border-0 pb-0">
+          <span class="badge category-badge me-2" id="modalPostCategory">Article</span>
+          <span class="text-muted small" id="modalPostMeta">Published Nov 2026</span>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 p-md-5">
+          <h2 class="modal-title h3 fw-bold mb-3" id="modalPostTitle">Article Title</h2>
+          <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom">
+            <div class="author-avatar-sm">DT</div>
+            <span class="small fw-bold">Dev Kumar Tiwari</span>
+            <span class="text-muted small">&bull; B.Tech Computer Science</span>
+          </div>
+          <div class="article-modal-content text-secondary" id="modalPostContent">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close Story</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer mt-5 py-4">
+    <div class="container text-center">
+      <p class="mb-1 text-muted small">&copy; 2026 The Engineering Column &bull; Web Development Laboratory Experiment 06</p>
+      <p class="mb-0 text-muted small">Coded with HTML5, CSS3 Media Queries &amp; Bootstrap 5 by Dev Kumar Tiwari (<a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer" class="text-decoration-none" style="color: var(--accent);">@http-d3v</a>)</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 Bundle JS (Includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+</html>

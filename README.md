@@ -14,8 +14,8 @@ This repository maintains separate, working, production-quality projects for eve
 | **03** | **Interactive To-Do List Application** | HTML, CSS, JavaScript, DOM, LocalStorage | ✅ **Completed** | [`Exp_03_Todo/`](./Exp_03_Todo/) |
 | **04** | **SEO & Accessibility Audit & Overhaul** | Semantic HTML5, WCAG 2.1, ARIA, Meta Tags | ✅ **Completed** | [`Exp_04_SEO_Accessibility/`](./Exp_04_SEO_Accessibility/) |
 | **05** | **Real-Time Weather Web App** | HTML, CSS, JavaScript, Fetch API | ✅ **Completed** | [`Exp_05_Weather/`](./Exp_05_Weather/) |
-| **06** | **Responsive Blog Platform** | HTML, CSS, Bootstrap 5, Media Queries | ⏳ Next Up | `Exp_06_Responsive_Blog/` |
-| **07** | **React Notes Single Page Application** | React, Vite, Functional Components, Hooks | ⏳ Upcoming | `Exp_07_React_Notes/` |
+| **06** | **Responsive Blog Platform** | HTML, CSS, Bootstrap 5, Media Queries | ✅ **Completed** | [`Exp_06_Responsive_Blog/`](./Exp_06_Responsive_Blog/) |
+| **07** | **React Notes Single Page Application** | React, Vite, Functional Components, Hooks | ⏳ Next Up | `Exp_07_React_Notes/` |
 | **08** | **Book Management RESTful API** | Node.js, Express.js, CRUD, Postman Docs | ⏳ Upcoming | `Exp_08_Book_API/` |
 | **09** | **User Authentication & Authorization System** | Node.js, Express, MongoDB, JWT, bcrypt | ⏳ Upcoming | `Exp_09_Authentication/` |
 | **10** | **Full-Stack Application Deployment** | Cloud Deployment (Vercel / Render / AWS) | ⏳ Upcoming | `Exp_10_Deployment/` |
