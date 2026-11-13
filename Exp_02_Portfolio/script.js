@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setFieldStatus(messageInput, 'messageError', isMessageValid);
 
       if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-        // Save submission to localStorage for demonstration/viva proof
+        // Save submission to localStorage for client-side persistence
         const submission = {
           name: nameVal,
           email: emailVal,

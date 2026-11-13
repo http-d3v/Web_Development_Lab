@@ -33,7 +33,7 @@ This repository maintains separate, working, production-quality projects for eve
   - Terracotta Accent: `#A25E3E`
   - Forest Olive: `#48604F`
 - **Zero AI-Gimmicks:** No oversized fonts, no distracting neon glow, no glassmorphism or useless animation clutter.
-- **Viva & Academic Ready:** Clean code comments, logical file separation, full `README.md` per experiment with viva prep.
+- **Clean & Academic Ready:** Clean code comments, logical file separation, full `README.md` per experiment.
 
 ---
 

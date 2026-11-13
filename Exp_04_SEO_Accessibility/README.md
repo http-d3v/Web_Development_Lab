@@ -60,7 +60,7 @@ Exp_04_SEO_Accessibility/
 ├── style.css                  # Custom styling, contrast variables & media queries
 ├── app.js                     # Tab switcher & live WCAG contrast calculation engine
 ├── .gitignore                 # Local Git ignore rules
-└── README.md                  # Comprehensive documentation & viva Q&A
+└── README.md                  # Comprehensive documentation
 ```
 
 ---
@@ -96,25 +96,3 @@ Open `http://localhost:3000` in your web browser.
   - Demonstrates illegible contrast, unscalable desktop viewport, inoperable fake buttons, and broken heading flow.
 - **After Page (`after.html`):**
   - Full keyboard skip link, semantic landmarks, high contrast text, accessible catalog search form, and structured schema metadata.
-
----
-
-## 7. Viva Voce Questions & Answers
-
-**Q1: What are the four core principles of WCAG 2.1 (POUR framework)?**  
-*Answer:*
-1. **Perceivable:** Information and UI components must be presentable to users in ways they can perceive (e.g. text alternatives for non-text content, high color contrast).
-2. **Operable:** User interface components and navigation must be operable (e.g. full keyboard access, no seizure-inducing flashes, sufficient time).
-3. **Understandable:** Information and operation of UI must be understandable (e.g. readable text, predictable behavior, input assistance).
-4. **Robust:** Content must be robust enough to be reliably interpreted by a wide variety of user agents, including assistive technologies.
-
-**Q2: What is the mathematical formula used to determine Color Contrast Ratio?**  
-*Answer:* The contrast ratio is defined as:
-$$\text{Contrast Ratio} = \frac{L_1 + 0.05}{L_2 + 0.05}$$
-where $L_1$ is the relative luminance of the lighter color and $L_2$ is the relative luminance of the darker color (both normalized between 0.0 and 1.0).
-
-**Q3: Why is a `<label>` element superior to a `placeholder` attribute in form inputs?**  
-*Answer:* A placeholder disappears as soon as the user begins typing, leaving users with cognitive difficulties or short-term memory loss without context. Furthermore, many screen readers do not announce placeholders reliably. An explicit `<label for="inputId">` provides permanent, unambiguous identification, expands the clickable tap target, and is formally announced by all assistive devices.
-
-**Q4: What is JSON-LD and how does it affect SEO?**  
-*Answer:* JSON-LD (JavaScript Object Notation for Linked Data) is a W3C standard method of encoding Linked Data using JSON. Implemented within a `<script type="application/ld+json">` tag, it provides structured metadata (e.g., Schema.org `WebSite`, `Library`, `Article`) directly to search engines, enabling rich search snippets, knowledge panels, and enhanced indexing.

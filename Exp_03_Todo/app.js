@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'task-2',
-      title: 'Revise Binary Search Trees and AVL Trees for DSA viva',
+      title: 'Revise Binary Search Trees and AVL Trees for DSA technical assessment',
       priority: 'High',
       category: 'Academics',
       dueDate: getFutureDate(2),

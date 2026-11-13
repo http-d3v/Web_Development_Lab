@@ -78,7 +78,7 @@ Exp_03_Todo/
 ├── style.css                 # Custom CSS3 styles, variables & media queries
 ├── app.js                    # DOM manipulation, CRUD & localStorage logic
 ├── .gitignore                # Git ignore configuration
-└── README.md                 # Complete experiment documentation & viva Q&A
+└── README.md                 # Complete experiment documentation
 ```
 
 ---
@@ -109,22 +109,3 @@ Open `http://localhost:3000` in your web browser.
 - **Toggling Task:** Clicking the checkbox toggles completion, updates the strikethrough styling, and updates the progress percentage.
 - **Editing Task:** Clicking the edit icon opens the modal populated with current task values; saving updates the item dynamically.
 - **Deleting Task:** Deletes the task from memory and `localStorage`, refreshing the counter.
-
----
-
-## 7. Viva Voce Questions & Answers
-
-**Q1: What is the DOM (Document Object Model)?**  
-*Answer:* The DOM is a platform- and language-neutral programming interface representing an HTML or XML document as a tree structure where each node corresponds to an object or element. It enables JavaScript to inspect, manipulate, create, and remove document content, styles, and attributes dynamically.
-
-**Q2: What is the difference between `localStorage` and `sessionStorage`?**  
-*Answer:* Both belong to the HTML5 Web Storage API and store data as key-value string pairs on the client side (typically up to 5MB). However, `localStorage` persists data indefinitely until explicitly cleared by the user or script, whereas `sessionStorage` data is cleared automatically when the browser tab or window is closed.
-
-**Q3: Why are `JSON.stringify()` and `JSON.parse()` required when working with `localStorage`?**  
-*Answer:* The `localStorage` API only accepts strings as keys and values. Complex data structures like JavaScript objects or arrays must be converted to a serialized string using `JSON.stringify(data)` before saving, and deserialized back into a native object/array using `JSON.parse(string)` upon retrieval.
-
-**Q4: What is Event Delegation and why is it useful in a dynamic list?**  
-*Answer:* Event delegation is a design pattern where an event listener is placed on a parent container rather than individually on every child element. Leveraging event bubbling, the parent handles events triggered by existing or newly created dynamic elements (`e.target`), saving memory and eliminating the need to re-bind event listeners when elements are added or removed.
-
-**Q5: What is the difference between `innerHTML` and `textContent`?**  
-*Answer:* `textContent` retrieves or sets the raw text content of a node without parsing HTML tags, making it safer against Cross-Site Scripting (XSS). `innerHTML` parses strings as HTML elements, allowing dynamic creation of HTML structure, but user inputs must be sanitized or escaped beforehand.
