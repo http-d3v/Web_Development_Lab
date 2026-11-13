@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 260" width="100%" height="100%">
+  <rect width="540" height="260" fill="#F4EFE6" rx="8"/>
+  <rect x="12" y="12" width="516" height="236" fill="#FDFBF7" stroke="#E2D7C8" stroke-width="1.5" rx="6"/>
+
+  <text x="270" y="42" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#2C2522" text-anchor="middle">WCAG 2.1 Core Accessibility Principles (POUR)</text>
+  
+  <!-- 4 Pillars -->
+  <!-- 1. Perceivable -->
+  <g transform="translate(30, 68)">
+    <rect width="110" height="155" rx="6" fill="#F4EFE6" stroke="#D8C8B5"/>
+    <rect x="0" y="0" width="110" height="28" rx="6" fill="#A25E3E"/>
+    <rect x="0" y="20" width="110" height="8" fill="#A25E3E"/>
+    <text x="55" y="19" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">Perceivable</text>
+    <text x="12" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Text Alt</text>
+    <text x="12" y="74" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; High Contrast</text>
+    <text x="12" y="96" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Captions</text>
+    <text x="12" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Scalable Text</text>
+  </g>
+
+  <!-- 2. Operable -->
+  <g transform="translate(155, 68)">
+    <rect width="110" height="155" rx="6" fill="#F4EFE6" stroke="#D8C8B5"/>
+    <rect x="0" y="0" width="110" height="28" rx="6" fill="#48604F"/>
+    <rect x="0" y="20" width="110" height="8" fill="#48604F"/>
+    <text x="55" y="19" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">Operable</text>
+    <text x="12" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Keyboard Nav</text>
+    <text x="12" y="74" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Focus Visible</text>
+    <text x="12" y="96" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; No Seizure</text>
+    <text x="12" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Skip Links</text>
+  </g>
+
+  <!-- 3. Understandable -->
+  <g transform="translate(280, 68)">
+    <rect width="110" height="155" rx="6" fill="#F4EFE6" stroke="#D8C8B5"/>
+    <rect x="0" y="0" width="110" height="28" rx="6" fill="#B88338"/>
+    <rect x="0" y="20" width="110" height="8" fill="#B88338"/>
+    <text x="55" y="19" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">Understandable</text>
+    <text x="12" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Readable Lang</text>
+    <text x="12" y="74" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Clear Labels</text>
+    <text x="12" y="96" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Predictable</text>
+    <text x="12" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Error Advice</text>
+  </g>
+
+  <!-- 4. Robust -->
+  <g transform="translate(405, 68)">
+    <rect width="110" height="155" rx="6" fill="#F4EFE6" stroke="#D8C8B5"/>
+    <rect x="0" y="0" width="110" height="28" rx="6" fill="#2C2522"/>
+    <rect x="0" y="20" width="110" height="8" fill="#2C2522"/>
+    <text x="55" y="19" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle">Robust</text>
+    <text x="12" y="52" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Valid Markup</text>
+    <text x="12" y="74" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; ARIA Roles</text>
+    <text x="12" y="96" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Screen Readers</text>
+    <text x="12" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#2C2522" font-weight="600">&bull; Cross-Browser</text>
+  </g>
+</svg>

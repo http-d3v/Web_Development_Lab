@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#2C2522"/>
+  <rect x="3" y="3" width="58" height="58" rx="11" fill="none" stroke="#F4EFE6" stroke-width="2" stroke-opacity="0.3"/>
+  <!-- Accessibility / Eye / Check Symbol -->
+  <circle cx="32" cy="20" r="6" fill="#FDFBF7"/>
+  <path d="M18 30 L46 30 M32 26 L32 46 M24 54 L32 46 L40 54" stroke="#A25E3E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

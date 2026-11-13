@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<!-- BEFORE VERSION: Unoptimized & Inaccessible Legacy Code (For Laboratory Audit) -->
+<head>
+  <!-- BAD PRACTICE: Missing charset, missing lang attribute on html tag -->
+  <!-- BAD PRACTICE: Missing viewport meta tag (breaks mobile scaling) -->
+  <!-- BAD PRACTICE: Missing SEO meta description, keywords, or OpenGraph tags -->
+  <title>Central Library</title>
+  <style>
+    /* Inaccessible styles: low contrast, removed focus outlines */
+    body {
+      font-family: Arial, sans-serif;
+      background: #FFFFFF;
+      color: #999999; /* BAD: Extremely low contrast ratio 2.8:1 (fails WCAG AA) */
+      margin: 0;
+      padding: 20px;
+    }
+    .header-box {
+      background: #EEEEEE;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    /* BAD PRACTICE: Outline: none removes focus indicator for keyboard users */
+    a, input, select, button, .clickable-div {
+      outline: none !important;
+    }
+    .btn-fake {
+      display: inline-block;
+      background: #CCCCCC;
+      color: #FFFFFF; /* BAD: Contrast ratio 1.6:1 */
+      padding: 8px 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .nav-bar-div {
+      margin-bottom: 15px;
+    }
+    .nav-item-div {
+      display: inline-block;
+      margin-right: 15px;
+      color: #AAAAAA;
+      cursor: pointer;
+    }
+    .warning-banner {
+      background: #FFF3CD;
+      color: #856404;
+      border: 1px solid #FFEEBA;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audit Warning Banner -->
+  <div class="warning-banner">
+    ⚠️ <strong>BEFORE VERSION (Unoptimized &amp; Inaccessible):</strong>
+    This file demonstrates intentional anti-patterns for B.Tech Web Dev Lab Exp 04 audit.
+    <a href="after.html" style="color: #533f03; font-weight: bold; margin-left: 10px;">Switch to AFTER (Optimized Version) &rarr;</a>
+    | <a href="index.html" style="color: #533f03; font-weight: bold; margin-left: 5px;">Back to Audit Dashboard</a>
+  </div>
+
+  <!-- BAD PRACTICE: Missing <header> and <nav> landmarks, using generic <div> -->
+  <div class="header-box">
+    <!-- BAD PRACTICE: Skipping h1, using bold div -->
+    <div style="font-size: 26px; font-weight: bold; color: #555555;">Campus Digital Library</div>
+    <div style="font-size: 13px;">Online Resource Repository &amp; Archives</div>
+
+    <!-- BAD PRACTICE: Inaccessible navigation with no role, no list, and click on div -->
+    <div class="nav-bar-div" style="margin-top: 10px;">
+      <div class="nav-item-div" onclick="alert('Home')">Home</div>
+      <div class="nav-item-div" onclick="alert('Catalog')">Catalog</div>
+      <div class="nav-item-div" onclick="alert('Services')">Services</div>
+      <div class="nav-item-div" onclick="alert('Contact')">Contact</div>
+    </div>
+  </div>
+
+  <!-- BAD PRACTICE: Missing <main> landmark, missing <h1> on page -->
+  <div>
+    
+    <!-- BAD PRACTICE: Random heading jumps: h4 placed before any h2 or h1 -->
+    <h4>Welcome to our repository</h4>
+
+    <p>
+      The campus library provides academic textbooks, digital journals, and research publications for undergraduate engineering scholars.
+    </p>
+
+    <!-- BAD PRACTICE: Missing alt text or using generic useless alt="image" -->
+    <img src="assets/campus-library.svg" alt="image" width="400" />
+
+    <!-- BAD PRACTICE: Random h6 following h4 -->
+    <h6>Featured Academic Collections</h6>
+
+    <p>
+      Our digital archive contains peer-reviewed computer science literature, operating systems manuals, and algorithm reference guides.
+    </p>
+
+    <!-- BAD PRACTICE: Inaccessible form with no <label>, only placeholder -->
+    <div style="background: #F9F9F9; padding: 15px; border: 1px solid #DDD; max-width: 450px; margin-top: 20px;">
+      <b>Search Library Catalog</b><br><br>
+      
+      <!-- BAD: No label element, screen reader cannot associate input with label -->
+      Title or Author:<br>
+      <input type="text" placeholder="Enter book title or author" style="width: 90%; padding: 6px;" /><br><br>
+
+      Department:<br>
+      <!-- BAD: Select without label -->
+      <select style="width: 95%; padding: 6px;">
+        <option>Computer Science</option>
+        <option>Electronics</option>
+        <option>Mechanical</option>
+      </select><br><br>
+
+      <!-- BAD: Clickable div instead of native <button type="submit"> -->
+      <!-- Inoperable with keyboard tab navigation -->
+      <div class="btn-fake" onclick="alert('Search initiated!')">Search Catalog</div>
+    </div>
+
+  </div>
+
+  <!-- BAD PRACTICE: Missing <footer> landmark, tiny illegible text -->
+  <div style="margin-top: 40px; font-size: 10px; color: #CCCCCC; border-top: 1px solid #EEE; padding-top: 10px;">
+    &copy; 2026 Central Engineering Library. All rights reserved.
+  </div>
+
+</body>
+</html>

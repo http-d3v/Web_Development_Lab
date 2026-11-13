@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experiment 04: SEO & Accessibility Audit Portal. Comprehensive Before and After comparative analysis with WCAG 2.1 compliance." />
+  <meta name="author" content="Dev Kumar Tiwari" />
+  <title>SEO &amp; Accessibility Audit Portal | Web Dev Lab — Exp 04</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= Academic Header Bar ================= -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container bar-content">
+      <span>🎓 Web Development Lab &bull; <strong>Experiment 04: SEO &amp; Web Accessibility Audit</strong></span>
+      <div class="bar-links">
+        <a href="../index.html" class="bar-link">&larr; Lab Index</a>
+        <span class="bar-sep">|</span>
+        <a href="https://exp-03-todo.vercel.app" target="_blank" rel="noopener noreferrer" class="bar-link">Exp 03: Todo &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= App Container ================= -->
+  <main class="main-wrapper">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <header class="dashboard-header">
+        <div class="header-badge">WCAG 2.1 AA &bull; Semantic HTML5 &bull; Core Web Vitals</div>
+        <h1 class="page-title">SEO &amp; Accessibility Audit Lab</h1>
+        <p class="page-subtitle">
+          An interactive laboratory inspection demonstrating the architectural transformation from legacy, inaccessible markup to fully compliant, SEO-optimized web standards.
+        </p>
+
+        <!-- Quick Launch Action Buttons -->
+        <div class="header-actions">
+          <a href="after.html" target="_blank" class="btn btn-primary">
+            <span>Open After (Optimized Page)</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5-5-5-5"/></svg>
+          </a>
+          <a href="before.html" target="_blank" class="btn btn-secondary">
+            <span>Open Before (Unoptimized Page)</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5-5-5-5"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- Scorecard Comparison Grid -->
+      <section class="scorecard-section" aria-label="Lighthouse Score Comparison">
+        <div class="scorecard-grid">
+          
+          <!-- Before Card -->
+          <div class="score-card before-card">
+            <div class="score-card-header">
+              <span class="version-tag tag-before">Legacy (Before)</span>
+              <span class="wcag-badge badge-fail">Non-Compliant</span>
+            </div>
+            <h2 class="score-card-title">Unoptimized Version</h2>
+            <div class="metric-gauges">
+              <div class="gauge-item">
+                <span class="gauge-val val-poor">42</span>
+                <span class="gauge-name">Accessibility</span>
+              </div>
+              <div class="gauge-item">
+                <span class="gauge-val val-poor">58</span>
+                <span class="gauge-name">SEO Score</span>
+              </div>
+              <div class="gauge-item">
+                <span class="gauge-val val-poor">2.8:1</span>
+                <span class="gauge-name">Contrast Ratio</span>
+              </div>
+            </div>
+            <ul class="score-highlights">
+              <li>❌ Missing viewport meta (unresponsive)</li>
+              <li>❌ Div soup without HTML5 landmarks</li>
+              <li>❌ Inverted &amp; broken heading hierarchy</li>
+              <li>❌ Inaccessible inputs (no explicit labels)</li>
+              <li>❌ Keyboard trap: focus outlines removed</li>
+            </ul>
+          </div>
+
+          <!-- After Card -->
+          <div class="score-card after-card">
+            <div class="score-card-header">
+              <span class="version-tag tag-after">Production (After)</span>
+              <span class="wcag-badge badge-pass">WCAG 2.1 AA / AAA</span>
+            </div>
+            <h2 class="score-card-title">Optimized Version</h2>
+            <div class="metric-gauges">
+              <div class="gauge-item">
+                <span class="gauge-val val-good">100</span>
+                <span class="gauge-name">Accessibility</span>
+              </div>
+              <div class="gauge-item">
+                <span class="gauge-val val-good">100</span>
+                <span class="gauge-name">SEO Score</span>
+              </div>
+              <div class="gauge-item">
+                <span class="gauge-val val-good">14.8:1</span>
+                <span class="gauge-name">Contrast Ratio</span>
+              </div>
+            </div>
+            <ul class="score-highlights">
+              <li>✅ Responsive viewport &amp; rich JSON-LD schema</li>
+              <li>✅ 100% semantic landmarks (header, nav, main, footer)</li>
+              <li>✅ Strict hierarchical headings (H1 &rarr; H2 &rarr; H3)</li>
+              <li>✅ Explicit form labels + ARIA helper bindings</li>
+              <li>✅ Skip-to-content link &amp; visible focus rings</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Interactive Tabbed Inspector -->
+      <section class="inspector-section" aria-label="Interactive Audit Tools">
+        
+        <!-- Navigation Tabs -->
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active" id="tabAuditBtn" role="tab" aria-selected="true" aria-controls="panelAudit">
+            📋 8-Point Audit Checklist
+          </button>
+          <button class="tab-btn" id="tabLiveBtn" role="tab" aria-selected="false" aria-controls="panelLive">
+            🖥️ Side-by-Side Visual Comparison
+          </button>
+          <button class="tab-btn" id="tabToolsBtn" role="tab" aria-selected="false" aria-controls="panelTools">
+            🧪 Interactive Contrast &amp; Heading Tool
+          </button>
+        </div>
+
+        <!-- Tab Panel 1: Audit Checklist -->
+        <div class="tab-panel active" id="panelAudit" role="tabpanel" aria-labelledby="tabAuditBtn">
+          <div class="audit-table-wrap">
+            <table class="audit-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 20%;">Inspection Metric</th>
+                  <th scope="col" style="width: 38%;">❌ Before Version (Anti-Pattern)</th>
+                  <th scope="col" style="width: 42%;">✅ After Version (WCAG &amp; SEO Compliant)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Semantic Landmarks</strong></td>
+                  <td>
+                    <code>&lt;div class="header-box"&gt;</code>, <code>&lt;div class="nav-bar-div"&gt;</code>.<br>
+                    <span class="sub-explain">Screen readers cannot jump between sections; zero landmark navigation.</span>
+                  </td>
+                  <td>
+                    <code>&lt;header&gt;</code>, <code>&lt;nav aria-label="Main"&gt;</code>, <code>&lt;main id="main-content"&gt;</code>, <code>&lt;footer&gt;</code>.<br>
+                    <span class="sub-explain">Full keyboard landmark hopping for assistive technologies.</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>2. Heading Hierarchy</strong></td>
+                  <td>
+                    No <code>&lt;h1&gt;</code>, uses random <code>&lt;h4&gt;</code> followed directly by <code>&lt;h6&gt;</code> and bold <code>&lt;b&gt;</code> tags.<br>
+                    <span class="sub-explain">Search engines cannot identify primary subject matter.</span>
+                  </td>
+                  <td>
+                    Single descriptive <code>&lt;h1&gt;</code>, sequential <code>&lt;h2&gt;</code> section titles, nested <code>&lt;h3&gt;</code> subheadings.<br>
+                    <span class="sub-explain">Linear, strictly unbroken document outline.</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>3. Viewport &amp; Scaling</strong></td>
+                  <td>
+                    Missing <code>&lt;meta name="viewport"&gt;</code>.<br>
+                    <span class="sub-explain">Renders at default 980px desktop width on mobile, requiring pinch-to-zoom.</span>
+                  </td>
+                  <td>
+                    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>.<br>
+                    <span class="sub-explain">Flawless responsive scaling on all mobile viewports.</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>4. Search Engine Metadata</strong></td>
+                  <td>
+                    Only generic <code>&lt;title&gt;Central Library&lt;/title&gt;</code>; missing meta description and OpenGraph tags.<br>
+                    <span class="sub-explain">Poor SERP click-through rates and truncated social cards.</span>
+                  </td>
+                  <td>
+                    Descriptive title (55 chars), meta description (150 chars), OpenGraph, Twitter Cards, and JSON-LD <code>@type: Library</code> schema.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>5. Image Alternative Text</strong></td>
+                  <td>
+                    <code>&lt;img src="..." alt="image"&gt;</code>.<br>
+                    <span class="sub-explain">Provides zero contextual information for visually impaired users.</span>
+                  </td>
+                  <td>
+                    <code>&lt;figure&gt;&lt;img alt="Architectural façade illustration..."&gt;&lt;figcaption&gt;...&lt;/figcaption&gt;&lt;/figure&gt;</code>.<br>
+                    <span class="sub-explain">Context-rich description announced accurately by screen readers.</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>6. Accessible Forms</strong></td>
+                  <td>
+                    <code>&lt;input placeholder="..."&gt;</code> without any <code>&lt;label&gt;</code> element.<br>
+                    <span class="sub-explain">Screen readers announce "Edit text blank"; users lose context once typing starts.</span>
+                  </td>
+                  <td>
+                    Explicit <code>&lt;label for="bookQuery"&gt;</code> with <code>aria-required="true"</code> and <code>aria-describedby="queryHelp"</code>.<br>
+                    <span class="sub-explain">Fully accessible, linked, and unambiguous.</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>7. Keyboard Nav &amp; Focus</strong></td>
+                  <td>
+                    Clickable <code>&lt;div onclick="..."&gt;</code> instead of buttons; CSS uses <code>outline: none !important</code>.<br>
+                    <span class="sub-explain">Tab key completely skips buttons; keyboard users cannot see focused elements.</span>
+                  </td>
+                  <td>
+                    Native <code>&lt;button type="submit"&gt;</code> with high-visibility <code>:focus-visible</code> outline ring (3px solid #2C2522) + Skip Link.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong>8. Color Contrast Ratio</strong></td>
+                  <td>
+                    Light gray text (<code>#999999</code>) on white background: <strong>2.8:1</strong>.<br>
+                    <span class="sub-explain">Fails WCAG AA minimum requirement of 4.5:1.</span>
+                  </td>
+                  <td>
+                    Charcoal text (<code>#2C2522</code>) on cream (<code>#FDFBF7</code>): <strong>14.8:1</strong>.<br>
+                    <span class="sub-explain">Far exceeds WCAG AAA enhanced standard (7:1).</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tab Panel 2: Side-by-Side Visual Comparison -->
+        <div class="tab-panel" id="panelLive" role="tabpanel" aria-labelledby="tabLiveBtn" style="display: none;">
+          <div class="live-preview-grid">
+            
+            <!-- Before Preview Frame -->
+            <div class="preview-box">
+              <div class="preview-header bg-before">
+                <span>❌ BEFORE VERSION (Inaccessible)</span>
+                <a href="before.html" target="_blank" class="preview-ext-link">Full Window &nearr;</a>
+              </div>
+              <iframe src="before.html" class="preview-iframe" title="Before Version Preview"></iframe>
+            </div>
+
+            <!-- After Preview Frame -->
+            <div class="preview-box">
+              <div class="preview-header bg-after">
+                <span>✅ AFTER VERSION (Accessible WCAG AA)</span>
+                <a href="after.html" target="_blank" class="preview-ext-link">Full Window &nearr;</a>
+              </div>
+              <iframe src="after.html" class="preview-iframe" title="After Version Preview"></iframe>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab Panel 3: Interactive Tools -->
+        <div class="tab-panel" id="panelTools" role="tabpanel" aria-labelledby="tabToolsBtn" style="display: none;">
+          
+          <div class="tools-grid">
+            
+            <!-- Tool 1: Live Color Contrast Tester -->
+            <div class="tool-card">
+              <h3 class="tool-card-title">🎨 Live WCAG Contrast Ratio Meter</h3>
+              <p class="tool-card-desc">Calculate luminance and verify WCAG 2.1 AA/AAA compliance between text and background.</p>
+
+              <div class="contrast-inputs">
+                <div class="input-col">
+                  <label for="textColorPicker" class="input-label">Text Color</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="textColorPicker" value="#2C2522" class="color-picker" />
+                    <input type="text" id="textColorText" value="#2C2522" class="hex-text" maxlength="7" />
+                  </div>
+                </div>
+
+                <div class="input-col">
+                  <label for="bgColorPicker" class="input-label">Background Color</label>
+                  <div class="color-picker-wrap">
+                    <input type="color" id="bgColorPicker" value="#FDFBF7" class="color-picker" />
+                    <input type="text" id="bgColorText" value="#FDFBF7" class="hex-text" maxlength="7" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contrast Result Display -->
+              <div class="contrast-result-box" id="contrastPreviewBox">
+                <div class="contrast-ratio-display">
+                  <span class="ratio-num" id="contrastRatioVal">14.8:1</span>
+                  <span class="contrast-badge" id="contrastBadge">Pass (AAA Enhanced)</span>
+                </div>
+                <p class="sample-text" id="sampleText">
+                  "The quick brown fox jumps over the lazy dog. Web accessibility ensures that digital platforms can be used by everyone."
+                </p>
+              </div>
+
+              <!-- Quick Presets -->
+              <div class="contrast-presets">
+                <span class="presets-label">Compare Presets:</span>
+                <button type="button" class="btn-preset" id="presetBefore">Load Before (#999 on #FFF)</button>
+                <button type="button" class="btn-preset" id="presetAfter">Load After (#2C2522 on #FDFBF7)</button>
+              </div>
+            </div>
+
+            <!-- Tool 2: POUR Accessibility Principles Reference -->
+            <div class="tool-card">
+              <h3 class="tool-card-title">📖 WCAG 2.1 POUR Framework</h3>
+              <p class="tool-card-desc">The four core principles of web accessibility explained for lab examinations.</p>
+              
+              <div class="pour-diagram-wrap">
+                <img src="assets/data-diagram.svg" alt="Diagram illustrating the four WCAG 2.1 principles: Perceivable, Operable, Understandable, and Robust" width="540" height="260" />
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Viva Voce & Theory Section -->
+      <section class="viva-section" aria-labelledby="viva-title">
+        <div class="card viva-card">
+          <h2 id="viva-title" class="viva-title">🎓 Lab Viva Voce Preparation &amp; Theoretical Concepts</h2>
+          
+          <div class="viva-item">
+            <h3 class="viva-q">Q1: What are HTML5 Semantic Landmarks and why are they critical for accessibility?</h3>
+            <p class="viva-a">
+              Semantic landmarks (such as <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>) designate structural regions of a web page. Screen readers provide keyboard shortcuts allowing blind users to jump directly between landmarks without tabbing through every link sequentially.
+            </p>
+          </div>
+
+          <div class="viva-item">
+            <h3 class="viva-q">Q2: What is the Heading Hierarchy rule and why should headings never be skipped?</h3>
+            <p class="viva-a">
+              Heading levels (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) define the outline of a document. A page must have exactly one <code>&lt;h1&gt;</code> representing the primary topic, followed sequentially by <code>&lt;h2&gt;</code> for major sections and <code>&lt;h3&gt;</code> for sub-sections. Skipping levels (e.g. going from <code>&lt;h1&gt;</code> to <code>&lt;h4&gt;</code>) creates confusion for assistive screen reader users who navigate via heading indexes.
+            </p>
+          </div>
+
+          <div class="viva-item">
+            <h3 class="viva-q">Q3: What are the minimum color contrast ratios mandated by WCAG 2.1 AA?</h3>
+            <p class="viva-a">
+              WCAG 2.1 Level AA requires a contrast ratio of at least <strong>4.5:1</strong> for normal text (&lt; 18pt or 14pt bold) and at least <strong>3:1</strong> for large text (&ge; 18pt or 14pt bold) and graphical UI components. Level AAA requires an enhanced ratio of <strong>7:1</strong> for normal text.
+            </p>
+          </div>
+
+          <div class="viva-item">
+            <h3 class="viva-q">Q4: Why is <code>&lt;a href="#main" class="skip-link"&gt;</code> essential for motor-impaired and keyboard users?</h3>
+            <p class="viva-a">
+              Users who rely on keyboards or switch devices must press Tab repeatedly to move through links. A skip link placed at the very top of the DOM allows keyboard users to bypass extensive navigation menus and jump directly to the primary page content with a single keystroke.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= Page Footer ================= -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>Experiment 04: SEO &amp; Accessibility (WCAG 2.1 AA Before/After Audit)</strong> &bull; B.Tech CSE Web Development Lab
+      </div>
+      <div>
+        Student: Dev Kumar Tiwari (<a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a>) &bull; Verified Standards Compliance
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script for Interactive Tabs & Contrast Meter -->
+  <script src="app.js"></script>
+</body>
+</html>

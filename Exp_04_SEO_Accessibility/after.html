@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- =========================================================================
+     AFTER VERSION: Fully Accessible & SEO-Optimized Implementation
+     Course: B.Tech Computer Science & Engineering - Web Development Lab Exp 04
+     Standards: WCAG 2.1 AA Compliant & Semantic HTML5 Best Practices
+     ========================================================================= -->
+<head>
+  <!-- Character Encoding & Responsive Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO Metadata -->
+  <title>Central Engineering Digital Library | Academic Catalog &amp; Research Portal</title>
+  <meta name="description" content="Access peer-reviewed engineering textbooks, computer science monographs, IEEE publications, and academic resources through the Central Campus Digital Library portal." />
+  <meta name="keywords" content="engineering library, computer science textbooks, B.Tech coursework, academic publications, digital catalog" />
+  <meta name="author" content="Dev Kumar Tiwari" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://exp-04-seo-accessibility.vercel.app/after.html" />
+
+  <!-- OpenGraph Metadata (Social Previews & Rich Cards) -->
+  <meta property="og:title" content="Central Engineering Digital Library &amp; Academic Catalog" />
+  <meta property="og:description" content="Explore verified computer science textbooks, data structures references, and research archives." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://exp-04-seo-accessibility.vercel.app/after.html" />
+  <meta property="og:image" content="assets/campus-library.svg" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Central Engineering Digital Library" />
+  <meta name="twitter:description" content="Access university engineering catalogs and peer-reviewed reference texts." />
+  <meta name="twitter:image" content="assets/campus-library.svg" />
+
+  <!-- JSON-LD Structured Data Schema (Search Engine Rich Snippets) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Library",
+    "name": "Central Engineering Campus Digital Library",
+    "description": "University academic catalog and research repository for engineering students.",
+    "url": "https://exp-04-seo-accessibility.vercel.app/after.html",
+    "department": "Department of Computer Science & Engineering"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans for crisp, accessible readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* -----------------------------------------------------------------------
+       WCAG 2.1 AA Compliant Stylesheet
+       Palette: Warm Cream & Charcoal with high contrast ratios (> 14:1)
+       ----------------------------------------------------------------------- */
+    :root {
+      --bg-base: #FDFBF7;
+      --bg-surface: #F4EFE6;
+      --bg-card: #FFFFFF;
+      --text-primary: #2C2522;   /* Contrast on #FDFBF7 is 14.8:1 (Exceeds AAA) */
+      --text-secondary: #584C45; /* Contrast on #FDFBF7 is 7.2:1 (Exceeds AA) */
+      --accent: #A25E3E;         /* Warm Terracotta CTA */
+      --accent-hover: #82472B;
+      --accent-green: #3A5B44;
+      --border: #E2D7C8;
+      --focus-ring: #2C2522;
+      --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    /* Accessibility Feature 1: Skip to Main Content Link for Keyboard Users */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--text-primary);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 4px;
+      z-index: 10000;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 10px;
+      outline: 3px solid #DDB258;
+    }
+
+    /* Accessibility Feature 2: Prominent Keyboard Focus States */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Laboratory Comparative Notice */
+    .audit-notice {
+      background-color: #EDF5F0;
+      color: var(--accent-green);
+      border-bottom: 1px solid #C8E0D1;
+      padding: 0.75rem 0;
+      font-size: 0.88rem;
+    }
+    .audit-notice-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .audit-link {
+      color: #1F452C;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* Header & Navigation Landmarks */
+    .site-header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+    .site-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+    .site-tagline {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Semantic Accessible Navigation Bar */
+    .main-nav {
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent);
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+    }
+
+    /* Main Content Landmark */
+    .main-content {
+      padding: 2.5rem 0;
+    }
+
+    /* Strict Heading Hierarchy */
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    /* Accessible Figure with Descriptive Caption */
+    .article-figure {
+      margin: 1.75rem 0;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .article-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .article-caption {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Accessible Search Form */
+    .search-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(44, 37, 34, 0.05);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .required-mark {
+      color: #B93826;
+    }
+    .form-help {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .form-control {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: #FAF8F5;
+      color: var(--text-primary);
+      width: 100%;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--text-primary);
+      background-color: #FFFFFF;
+    }
+
+    /* Native Accessible Button */
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-submit:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Semantic Footer Landmark */
+    .site-footer {
+      background-color: #241D1A;
+      color: #E2D7CF;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid #362E2A;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+    .footer-links a {
+      color: #D6A37F;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WCAG 2.1 AA Technique: Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Audit Laboratory Navigation Notice -->
+  <aside class="audit-notice" aria-label="Experiment Audit Status">
+    <div class="container audit-notice-inner">
+      <span>✅ <strong>AFTER VERSION:</strong> Fully semantic, accessible (WCAG 2.1 AA), and SEO-optimized.</span>
+      <div>
+        <a href="before.html" class="audit-link">View BEFORE (Unoptimized)</a> &bull; 
+        <a href="index.html" class="audit-link">Audit Comparative Dashboard &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Semantic <header> Landmark -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand-group">
+        <span class="site-title">Central Engineering Digital Library</span>
+        <span class="site-tagline">University Academic Catalog &amp; Research Archive</span>
+      </div>
+
+      <!-- Semantic <nav> Landmark with explicit ARIA label -->
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#welcome" class="nav-link active" aria-current="page">Home</a></li>
+          <li><a href="#catalog" class="nav-link">Search Catalog</a></li>
+          <li><a href="#collections" class="nav-link">Collections</a></li>
+          <li><a href="#standards" class="nav-link">Accessibility Standards</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Semantic <main> Landmark with targeted ID for skip-link -->
+  <main id="main-content" class="main-content" role="main">
+    <div class="container">
+      
+      <!-- Section 1: Introduction with Proper H1 Heading -->
+      <article id="welcome" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Welcome to the Campus Digital Repository</h1>
+        
+        <p>
+          The Central Engineering Library is dedicated to supporting undergraduate and graduate scholars in their academic and research pursuits. Our digital repository provides catalog access to physical volumes, digital textbooks, computer science monographs, and research publications.
+        </p>
+
+        <!-- Semantic Figure with Descriptive Alternative Text -->
+        <figure class="article-figure">
+          <img 
+            src="assets/campus-library.svg" 
+            alt="Architectural façade illustration of the university central library building with pediment, columns, and reading hall entrance"
+            width="600" 
+            height="320" 
+            loading="lazy" 
+          />
+          <figcaption class="article-caption">
+            Figure 1.1: University Central Library building — housing over 80,000 engineering textbooks and digital workstations.
+          </figcaption>
+        </figure>
+      </article>
+
+      <!-- Section 2: Accessible Form with H2 Heading -->
+      <section id="catalog" class="search-card" aria-labelledby="search-heading">
+        <h2 id="search-heading">Search Library Catalog</h2>
+        <p>Look up reference books, laboratory manuals, and research journals across academic departments.</p>
+
+        <!-- Accessible HTML5 Form with Explicit Labels and ARIA Associations -->
+        <form id="catalogSearchForm" action="#" method="get" novalidate>
+          
+          <!-- Field 1: Book Title or Author -->
+          <div class="form-group">
+            <label for="bookQuery" class="form-label">
+              Book Title, Author, or ISBN <span class="required-mark" aria-hidden="true">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="bookQuery" 
+              name="query" 
+              class="form-control" 
+              placeholder="e.g. Data Structures and Algorithm Analysis" 
+              required 
+              aria-required="true"
+              aria-describedby="queryHelp"
+            />
+            <span id="queryHelp" class="form-help">Enter at least 3 characters to search across titles and authors.</span>
+          </div>
+
+          <!-- Field 2: Department Select -->
+          <div class="form-group">
+            <label for="departmentSelect" class="form-label">Academic Department</label>
+            <select id="departmentSelect" name="department" class="form-control">
+              <option value="cse" selected>Computer Science &amp; Engineering</option>
+              <option value="ece">Electronics &amp; Communication Engineering</option>
+              <option value="me">Mechanical Engineering</option>
+              <option value="civil">Civil Engineering</option>
+            </select>
+          </div>
+
+          <!-- Native Accessible Button -->
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <circle cx="7" cy="7" r="5"/>
+              <line x1="11" y1="11" x2="15" y2="15"/>
+            </svg>
+            <span>Search Catalog</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Section 3: Collections with H2 and H3 Subheadings -->
+      <section id="collections" aria-labelledby="collections-heading">
+        <h2 id="collections-heading">Featured Academic Collections</h2>
+        
+        <p>
+          Curated literature vetted by faculty members to assist B.Tech students in laboratory practicals and theoretical coursework.
+        </p>
+
+        <section aria-labelledby="cse-heading">
+          <h3 id="cse-heading">1. Computer Science &amp; Systems Core</h3>
+          <p>
+            Standard textbooks on Algorithms (CLRS), Operating System Concepts (Silberschatz), Database System Concepts (Korth), and Computer Networking (Tanenbaum).
+          </p>
+        </section>
+
+        <section aria-labelledby="lab-heading">
+          <h3 id="lab-heading">2. Web Development &amp; Software Engineering Lab Records</h3>
+          <p>
+            Laboratory manuals, WCAG accessibility benchmarks, and client-side programming documentation.
+          </p>
+        </section>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Semantic <footer> Landmark -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Central Engineering Library &bull; Web Development Lab Experiment 04</p>
+      <div class="footer-links">
+        <a href="#welcome">Back to top &uarr;</a>
+        <a href="index.html">Audit Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Minimal form submission feedback for demonstration
+    document.getElementById('catalogSearchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const val = document.getElementById('bookQuery').value.trim();
+      if (!val) {
+        alert('Please enter a search term (WCAG 2.1 Accessible Form Validation demo).');
+        document.getElementById('bookQuery').focus();
+      } else {
+        alert('Searching for: ' + val);
+      }
+    });
+  </script>
+</body>
+</html>

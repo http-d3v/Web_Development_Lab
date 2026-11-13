@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <rect width="600" height="320" fill="#F4EFE6"/>
+  <!-- Library Building Façade -->
+  <rect x="40" y="80" width="520" height="200" rx="8" fill="#FDFBF7" stroke="#E2D7C8" stroke-width="2"/>
+  
+  <!-- Roof / Pediment -->
+  <polygon points="40,80 300,24 560,80" fill="#EAE0D1" stroke="#D8C8B5" stroke-width="2"/>
+  <circle cx="300" cy="56" r="16" fill="#F4EFE6" stroke="#C8B8A2" stroke-width="2"/>
+  <text x="300" y="61" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#2C2522" text-anchor="middle">CENTRAL LIBRARY</text>
+
+  <!-- Columns -->
+  <rect x="80" y="80" width="24" height="200" fill="#E8DFD1"/>
+  <rect x="180" y="80" width="24" height="200" fill="#E8DFD1"/>
+  <rect x="396" y="80" width="24" height="200" fill="#E8DFD1"/>
+  <rect x="496" y="80" width="24" height="200" fill="#E8DFD1"/>
+
+  <!-- Main Entrance -->
+  <rect x="250" y="150" width="100" height="130" rx="4" fill="#2C2522"/>
+  <path d="M250 150 Q300 110 350 150 Z" fill="#2C2522"/>
+  <rect x="256" y="156" width="41" height="124" fill="#3D332F"/>
+  <rect x="303" y="156" width="41" height="124" fill="#3D332F"/>
+  <circle cx="292" cy="220" r="3" fill="#DDB258"/>
+  <circle cx="308" cy="220" r="3" fill="#DDB258"/>
+
+  <!-- Windows -->
+  <rect x="124" y="120" width="36" height="56" rx="3" fill="#DFD3C1" stroke="#2C2522" stroke-width="1.5"/>
+  <line x1="142" y1="120" x2="142" y2="176" stroke="#2C2522" stroke-width="1.5"/>
+  <line x1="124" y1="148" x2="160" y2="148" stroke="#2C2522" stroke-width="1.5"/>
+
+  <rect x="440" y="120" width="36" height="56" rx="3" fill="#DFD3C1" stroke="#2C2522" stroke-width="1.5"/>
+  <line x1="458" y1="120" x2="458" y2="176" stroke="#2C2522" stroke-width="1.5"/>
+  <line x1="440" y1="148" x2="476" y2="148" stroke="#2C2522" stroke-width="1.5"/>
+
+  <!-- Steps -->
+  <rect x="220" y="278" width="160" height="10" fill="#D8C8B5"/>
+  <rect x="200" y="288" width="200" height="12" fill="#C8B8A2"/>
+  
+  <!-- Ground -->
+  <rect x="0" y="298" width="600" height="22" fill="#E2D7C8"/>
+</svg>
