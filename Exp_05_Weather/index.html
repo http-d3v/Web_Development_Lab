@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experiment 05: Real-Time Weather Application using JavaScript Fetch API, asynchronous promises, and Open-Meteo meteorological data." />
+  <meta name="author" content="Dev Kumar Tiwari" />
+  <title>Atmospheric Weather Observatory | Web Dev Lab — Exp 05</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= Academic Header Bar ================= -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container bar-content">
+      <span>🎓 Web Development Lab &bull; <strong>Experiment 05: Fetch API &amp; Real-Time Weather</strong></span>
+      <div class="bar-links">
+        <a href="../index.html" class="bar-link">&larr; Lab Index</a>
+        <span class="bar-sep">|</span>
+        <a href="https://exp-04-seo-accessibility.vercel.app" target="_blank" rel="noopener noreferrer" class="bar-link">Exp 04: SEO &amp; A11y &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= Main App Container ================= -->
+  <main class="main-wrapper">
+    <div class="container app-container">
+      
+      <!-- Top Title & Controls Header -->
+      <header class="app-header">
+        <div class="header-titles">
+          <div class="header-badge">Fetch API &bull; Async / Await &bull; Open Meteorological Telemetry</div>
+          <h1 class="app-title">Atmospheric Weather Observatory</h1>
+          <p class="app-subtitle">Real-time global weather observations, atmospheric metrics, and 5-day forecasts.</p>
+        </div>
+
+        <!-- Unit Toggle -->
+        <div class="unit-toggle" role="radiogroup" aria-label="Temperature Unit">
+          <button type="button" class="unit-btn active" id="unitCelsius" role="radio" aria-checked="true">&deg;C (Celsius)</button>
+          <button type="button" class="unit-btn" id="unitFahrenheit" role="radio" aria-checked="false">&deg;F (Fahrenheit)</button>
+        </div>
+      </header>
+
+      <!-- Search & Geolocation Bar Card -->
+      <section class="search-section" aria-label="Location Search">
+        <div class="card search-card">
+          <form id="weatherSearchForm" class="search-form" novalidate>
+            <div class="search-input-wrap">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="7" cy="7" r="5"/>
+                <line x1="11" y1="11" x2="15" y2="15"/>
+              </svg>
+              <input 
+                type="text" 
+                id="cityInput" 
+                class="search-input" 
+                placeholder="Search city, district, or global capital (e.g. New Delhi, Tokyo, London)..." 
+                autocomplete="off"
+                required
+              />
+              <button type="button" class="clear-btn" id="clearSearchBtn" aria-label="Clear search input" style="display: none;">&times;</button>
+            </div>
+
+            <div class="search-buttons">
+              <button type="submit" class="btn btn-primary" id="searchBtn">
+                <span>Fetch Weather</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12l5-5-5-5"/>
+                </svg>
+              </button>
+
+              <button type="button" class="btn btn-secondary" id="geoBtn" title="Detect weather for current GPS coordinates">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="8" cy="8" r="3"/>
+                  <path d="M8 1v2 M8 13v2 M1 8h2 M13 8h2"/>
+                </svg>
+                <span>My Location</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Quick City Chips & Recent Searches -->
+          <div class="chips-container">
+            <span class="chips-label">Popular Hubs:</span>
+            <div class="chips-list" id="popularChips">
+              <button type="button" class="city-chip" data-city="New Delhi">New Delhi</button>
+              <button type="button" class="city-chip" data-city="Mumbai">Mumbai</button>
+              <button type="button" class="city-chip" data-city="Bengaluru">Bengaluru</button>
+              <button type="button" class="city-chip" data-city="London">London</button>
+              <button type="button" class="city-chip" data-city="Tokyo">Tokyo</button>
+              <button type="button" class="city-chip" data-city="New York">New York</button>
+            </div>
+          </div>
+
+          <!-- Recent Searches Row -->
+          <div class="recent-container" id="recentContainer" style="display: none;">
+            <span class="chips-label">Recent:</span>
+            <div class="chips-list" id="recentChips"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dynamic Weather Content Area -->
+      <section class="display-section" id="displaySection" aria-live="polite">
+        
+        <!-- Loading State -->
+        <div class="state-card loading-card" id="loadingState" style="display: none;">
+          <div class="spinner"></div>
+          <p class="state-title">Querying Meteorological Satellite Telemetry...</p>
+          <p class="state-desc">Fetching real-time temperature, humidity, and barometric readings via Fetch API.</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="state-card error-card" id="errorState" style="display: none;">
+          <div class="state-icon">⚠️</div>
+          <h2 class="state-title" id="errorMessage">Location not found</h2>
+          <p class="state-desc" id="errorSubMessage">We could not retrieve weather readings for this query. Please check your spelling and try again.</p>
+          <button type="button" class="btn btn-secondary btn-sm" id="retryBtn">Retry Search</button>
+        </div>
+
+        <!-- Weather Data Content Display -->
+        <div class="weather-data-wrap" id="weatherData" style="display: none;">
+          
+          <!-- Primary Overview Card -->
+          <article class="card primary-card">
+            <div class="primary-left">
+              <div class="location-badge">
+                <span class="location-icon">📍</span>
+                <span class="location-text" id="cityName">Delhi, India</span>
+                <span class="country-pill" id="countryCode">IN</span>
+              </div>
+              <div class="timestamp-text" id="localTime">Observed today, 01:15 AM (Local Time)</div>
+              
+              <div class="temp-row">
+                <span class="temp-val" id="tempValue">21&deg;</span>
+                <div class="temp-sub">
+                  <span class="condition-badge" id="conditionText">Partly Cloudy</span>
+                  <span class="feels-like" id="feelsLike">Feels like 22&deg;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="primary-right">
+              <div class="condition-art" id="weatherArt">
+                <!-- SVG Icon injected dynamically -->
+              </div>
+            </div>
+          </article>
+
+          <!-- Meteorological Metrics Grid (4 Cards) -->
+          <div class="metrics-grid">
+            
+            <!-- Humidity Card -->
+            <div class="card metric-card">
+              <div class="metric-header">
+                <span class="metric-icon">💧</span>
+                <span class="metric-label">Relative Humidity</span>
+              </div>
+              <div class="metric-value-row">
+                <span class="metric-number" id="humidityVal">78%</span>
+              </div>
+              <div class="metric-hint" id="humidityHint">Comfortable air moisture</div>
+            </div>
+
+            <!-- Wind Speed & Direction Card -->
+            <div class="card metric-card">
+              <div class="metric-header">
+                <span class="metric-icon">💨</span>
+                <span class="metric-label">Wind Velocity</span>
+              </div>
+              <div class="metric-value-row">
+                <span class="metric-number" id="windVal">4.5 km/h</span>
+              </div>
+              <div class="metric-hint" id="windDirHint">Direction: 346&deg; (NNW)</div>
+            </div>
+
+            <!-- Surface Pressure Card -->
+            <div class="card metric-card">
+              <div class="metric-header">
+                <span class="metric-icon">⏱️</span>
+                <span class="metric-label">Surface Pressure</span>
+              </div>
+              <div class="metric-value-row">
+                <span class="metric-number" id="pressureVal">988 hPa</span>
+              </div>
+              <div class="metric-hint">Standard sea level baseline</div>
+            </div>
+
+            <!-- Precipitation Card -->
+            <div class="card metric-card">
+              <div class="metric-header">
+                <span class="metric-icon">🌧️</span>
+                <span class="metric-label">Precipitation</span>
+              </div>
+              <div class="metric-value-row">
+                <span class="metric-number" id="precipVal">0.0 mm</span>
+              </div>
+              <div class="metric-hint" id="precipHint">No active rainfall detected</div>
+            </div>
+
+          </div>
+
+          <!-- 5-Day Daily Forecast Section -->
+          <section class="forecast-section" aria-label="Five Day Weather Forecast">
+            <div class="card forecast-card">
+              <div class="forecast-header">
+                <h2 class="forecast-title">5-Day Meteorological Outlook</h2>
+                <span class="forecast-sub">Daily temperature range &amp; precipitation outlook</span>
+              </div>
+              
+              <div class="forecast-list" id="forecastList">
+                <!-- Injected dynamically by app.js -->
+              </div>
+            </div>
+          </section>
+
+          <!-- API Telemetry Architecture Note -->
+          <section class="telemetry-section">
+            <div class="telemetry-box">
+              <div class="telemetry-header">
+                <span class="telemetry-tag">API Integration Specs</span>
+                <span class="telemetry-status">● Live Provider: Open-Meteo REST API</span>
+              </div>
+              <p class="telemetry-text">
+                This project queries the WMO-standard open meteorological endpoints without storing hardcoded secrets on the client side. Data is fetched asynchronously via <code>fetch()</code> with native ES6 <code>async/await</code>, parsed as JSON, and rendered directly to the DOM with comprehensive promise error handling.
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ================= Page Footer ================= -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <div>
+        <strong>Experiment 05: Real-Time Weather Application</strong> &bull; B.Tech CSE Web Development Lab
+      </div>
+      <div>
+        Student: Dev Kumar Tiwari (<a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a>) &bull; JavaScript Fetch API &amp; Asynchronous DOM Manipulation
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

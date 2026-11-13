@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#2C2522"/>
+  <rect x="3" y="3" width="58" height="58" rx="11" fill="none" stroke="#F4EFE6" stroke-width="2" stroke-opacity="0.3"/>
+  <!-- Sun & Cloud Weather Symbol -->
+  <circle cx="26" cy="26" r="10" fill="#B88338"/>
+  <path d="M22 36 C22 30, 28 28, 33 30 C35 24, 44 24, 47 29 C52 29, 54 34, 52 38 C54 42, 50 46, 46 46 L24 46 C19 46, 17 40, 22 36 Z" fill="#FDFBF7"/>
+</svg>
