@@ -38,5 +38,5 @@ This repository maintains separate, working, production-quality projects for eve
 ---
 
 ## 🚀 Live Demonstrations
-- **Exp 02 (Portfolio):** Deployed to Vercel (see [Exp_02_Portfolio/README.md](./Exp_02_Portfolio/README.md) for live URL)
-- **Repository:** [https://github.com/http-d3v/Web_Development_Lab](https://github.com/http-d3v/Web_Development_Lab)
+- **Exp 02 (Personal Portfolio):** [https://exp-02-portfolio.vercel.app](https://exp-02-portfolio.vercel.app)
+- **GitHub Repository:** [https://github.com/http-d3v/Web_Development_Lab](https://github.com/http-d3v/Web_Development_Lab)
