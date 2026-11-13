@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4EFE6"/>
+      <stop offset="100%" stop-color="#E8DFD1"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="120" cy="120" r="116" fill="url(#avatarBg)" stroke="#D8C8B5" stroke-width="3"/>
+  
+  <!-- Subtle decorative ring -->
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#2C2522" stroke-width="1.5" stroke-dasharray="4 4" stroke-opacity="0.25"/>
+
+  <!-- Shoulders / Torso -->
+  <path d="M42 215 C42 165, 80 152, 120 152 C160 152, 198 165, 198 215 Z" fill="#2C2522"/>
+  
+  <!-- Shirt collar -->
+  <polygon points="120,175 102,152 138,152" fill="#FDFBF7"/>
+  <polygon points="120,185 110,152 130,152" fill="#A25E3E"/>
+
+  <!-- Neck -->
+  <rect x="106" y="130" width="28" height="26" rx="4" fill="#D6A37F"/>
+
+  <!-- Head -->
+  <ellipse cx="120" cy="100" rx="42" ry="46" fill="#E8B896"/>
+
+  <!-- Hair -->
+  <path d="M78 92 C76 60, 95 44, 120 44 C148 44, 164 58, 162 92 C154 75, 138 70, 120 72 C100 70, 86 76, 78 92 Z" fill="#241B18"/>
+  <path d="M78 92 C75 98, 76 112, 79 116 C81 106, 81 96, 83 92 Z" fill="#241B18"/>
+  <path d="M162 92 C165 98, 164 112, 161 116 C159 106, 159 96, 157 92 Z" fill="#241B18"/>
+
+  <!-- Glasses -->
+  <rect x="90" y="93" width="24" height="18" rx="5" fill="none" stroke="#2C2522" stroke-width="3"/>
+  <rect x="126" y="93" width="24" height="18" rx="5" fill="none" stroke="#2C2522" stroke-width="3"/>
+  <line x1="114" y1="102" x2="126" y2="102" stroke="#2C2522" stroke-width="3"/>
+  <line x1="80" y1="100" x2="90" y2="102" stroke="#2C2522" stroke-width="2.5"/>
+  <line x1="150" y1="102" x2="160" y2="100" stroke="#2C2522" stroke-width="2.5"/>
+
+  <!-- Eyes -->
+  <circle cx="102" cy="102" r="3.5" fill="#2C2522"/>
+  <circle cx="138" cy="102" r="3.5" fill="#2C2522"/>
+  <circle cx="103.5" cy="100.5" r="1" fill="#FFFFFF"/>
+  <circle cx="139.5" cy="100.5" r="1" fill="#FFFFFF"/>
+
+  <!-- Eyebrows -->
+  <path d="M91 88 Q102 85 112 88" stroke="#2C2522" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M128 88 Q138 85 149 88" stroke="#2C2522" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Nose -->
+  <path d="M119 108 L117 117 L122 117" stroke="#C28A63" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Smile -->
+  <path d="M109 126 Q120 134 131 126" stroke="#2C2522" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="B.Tech Computer Science & Engineering - Web Development Laboratory Experiments Index." />
+  <title>Web Development Laboratory | Dev Kumar Tiwari</title>
+  <link rel="icon" type="image/svg+xml" href="Exp_02_Portfolio/assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-base: #FDFBF7;
+      --bg-surface: #F4EFE6;
+      --bg-card: #FFFFFF;
+      --text-primary: #2C2522;
+      --text-secondary: #655953;
+      --text-muted: #8F827A;
+      --accent: #A25E3E;
+      --accent-green: #48604F;
+      --border: #E5DCD0;
+      --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+    }
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background-color: #F8EFE7;
+      border: 1px solid #ECD8C8;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    .main-wrap {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    p.lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+    .experiments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(44, 37, 34, 0.08);
+      border-color: #D2C4B0;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .card-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .status-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+    .status-complete {
+      background-color: #EDF5F0;
+      color: var(--accent-green);
+      border: 1px solid #C8E0D1;
+    }
+    .status-upcoming {
+      background-color: var(--bg-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+    .tech-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      color: var(--text-secondary);
+    }
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background-color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin-top: auto;
+    }
+    .btn-disabled {
+      background-color: #E2D7CC;
+      color: #8C7F75;
+      cursor: not-allowed;
+    }
+    footer {
+      background-color: #241D1A;
+      color: #BDB0A6;
+      padding: 1.5rem 2rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="brand">
+        <span class="badge">B.Tech CSE</span>
+        <strong>Web Development Laboratory</strong>
+      </div>
+      <div>
+        <span>Student: <strong>Dev Kumar Tiwari</strong> (<a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">@http-d3v</a>)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-wrap">
+    <h1>Laboratory Experiments (02 – 12)</h1>
+    <p class="lead">
+      Practical assignments developed for the B.Tech Web Development Lab syllabus. Built with clean, student-crafted code, warm minimalist aesthetics, and comprehensive documentation.
+    </p>
+
+    <div class="experiments-grid">
+      
+      <!-- Experiment 02: Active -->
+      <a href="Exp_02_Portfolio/index.html" class="card">
+        <div class="card-top">
+          <span class="card-num">Experiment 02</span>
+          <span class="status-tag status-complete">Completed &bull; Live</span>
+        </div>
+        <h2 class="card-title">Personal Portfolio Website</h2>
+        <p class="card-desc">
+          Clean, responsive personal portfolio with semantic HTML5, custom CSS3 variables, flexbox, CSS grid, education timeline, skills matrix, and a validated contact form.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">HTML5</span>
+          <span class="tech-pill">CSS3</span>
+          <span class="tech-pill">Flexbox</span>
+          <span class="tech-pill">CSS Grid</span>
+          <span class="tech-pill">JavaScript</span>
+        </div>
+        <div class="card-btn">
+          Open Experiment 02 &rarr;
+        </div>
+      </a>
+
+      <!-- Experiment 03: Upcoming -->
+      <div class="card" style="opacity: 0.85;">
+        <div class="card-top">
+          <span class="card-num">Experiment 03</span>
+          <span class="status-tag status-upcoming">Next Up</span>
+        </div>
+        <h2 class="card-title">Interactive To-Do List</h2>
+        <p class="card-desc">
+          Dynamic task management application using DOM manipulation, task filters, completion states, input validation, and localStorage persistence.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">JavaScript DOM</span>
+          <span class="tech-pill">LocalStorage</span>
+          <span class="tech-pill">CSS3</span>
+        </div>
+        <div class="card-btn btn-disabled">
+          Scheduled
+        </div>
+      </div>
+
+      <!-- Experiment 04: Upcoming -->
+      <div class="card" style="opacity: 0.7;">
+        <div class="card-top">
+          <span class="card-num">Experiment 04</span>
+          <span class="status-tag status-upcoming">Upcoming</span>
+        </div>
+        <h2 class="card-title">SEO &amp; Web Accessibility</h2>
+        <p class="card-desc">
+          Audit and implementation of semantic headings, ARIA attributes, meta tags, and WCAG accessibility compliance with Before &amp; After analysis.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">Semantic HTML</span>
+          <span class="tech-pill">WCAG 2.1</span>
+          <span class="tech-pill">SEO Meta</span>
+        </div>
+        <div class="card-btn btn-disabled">
+          Scheduled
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Dev Kumar Tiwari &bull; Web Development Lab &bull; Computer Science &amp; Engineering</p>
+  </footer>
+
+</body>
+</html>
