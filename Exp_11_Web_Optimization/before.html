@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UNOPTIMIZED PAGE - Web Dev Lab Exp 11 (Before)</title>
+  
+  <!-- ANTI-PATTERN 1: Render-blocking external scripts loaded synchronously in <head> -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+  <!-- ANTI-PATTERN 2: External font links without preconnect or display=swap -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  <!-- ANTI-PATTERN 3: Bloated unminified CSS with dozens of unused rules -->
+  <style>
+    /* Unused CSS Selectors (CSS Bloat) */
+    .unused-hero-banner { display: flex; width: 100vw; height: 900px; background: red; }
+    .unused-carousel-slider { position: absolute; top: -9999px; }
+    .unused-footer-v1 { background: yellow; margin: 100px; }
+    .unused-footer-v2 { background: pink; border: 20px solid black; }
+    .unused-pricing-card { box-shadow: 0 0 100px purple; }
+    .unused-modal-window { z-index: 99999; opacity: 0; }
+    .unused-sidebar-nav { width: 350px; float: left; }
+    .unused-profile-badge { border-radius: 50%; border: 5px solid cyan; }
+
+    /* Actual Styles - Unminified and Redundant */
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+      background-color: #FDFBF7;
+      color: #2C2522;
+      line-height: 1.6;
+    }
+    .header-banner {
+      background-color: #F4EFE6;
+      border-bottom: 2px solid #E7DECF;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+    }
+    .main-wrap {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .academic-notice {
+      background-color: #FFF3CD;
+      color: #856404;
+      border: 1px solid #FFEEBA;
+      padding: 15px;
+      margin-bottom: 25px;
+      border-radius: 4px;
+    }
+    .content-box {
+      background: #FFFFFF;
+      border: 1px solid #E7DECF;
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    .btn-action {
+      background: #A25E3E;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    /* Heavy unoptimized images without dimensions or lazy loading */
+    img.heavy-asset {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+    }
+  </style>
+
+  <!-- ANTI-PATTERN 4: Heavy inline JavaScript executing synchronously before DOM renders -->
+  <script>
+    console.log("Anti-Pattern: Synchronous script in head blocking HTML parser...");
+    // Simulate CPU blockage
+    var start = Date.now();
+    while (Date.now() - start < 60) {
+      // Artificially block main thread for 60ms
+    }
+  </script>
+</head>
+<body>
+
+  <header class="header-banner">
+    <h1>[UNOPTIMIZED] Computer Science Study Portal</h1>
+    <p>Web Development Lab &bull; Experiment 11 (Before Optimization Baseline)</p>
+  </header>
+
+  <main class="main-wrap">
+    <div class="academic-notice">
+      ⚠️ <strong>Performance Audit Notice:</strong> This version demonstrates common web performance anti-patterns: render-blocking scripts in <code>&lt;head&gt;</code>, non-deferred external jQuery library, unminified unused CSS, absence of image <code>loading="lazy"</code>, missing font preconnects, and layout shifts from omitted image dimensions.
+    </div>
+
+    <div class="content-box">
+      <h2>Module 1: Machine Learning &amp; Data Science Fundamentals</h2>
+      <p>
+        In second year B.Tech Computer Science &amp; Engineering (Data Science), core coursework bridges theoretical mathematical structures with vectorized scientific computing in Python, Pandas, and Scikit-Learn.
+      </p>
+
+      <!-- ANTI-PATTERN 5: Image without explicit width/height causing Cumulative Layout Shift (CLS) and missing lazy loading -->
+      <svg class="heavy-asset" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="200" fill="#F4EFE6" stroke="#E7DECF"/>
+        <circle cx="100" cy="100" r="50" fill="#A25E3E" opacity="0.8"/>
+        <circle cx="300" cy="100" r="50" fill="#48604F" opacity="0.8"/>
+        <circle cx="500" cy="100" r="50" fill="#B88338" opacity="0.8"/>
+        <text x="300" y="110" font-family="Arial" font-size="18" text-anchor="middle" fill="#2C2522">Unoptimized Asset (No Lazy Loading)</text>
+      </svg>
+
+      <button class="btn-action" onclick="heavyDomSpam()">Execute Script Action</button>
+    </div>
+
+    <div class="content-box">
+      <h2>Module 2: Database Systems &amp; Query Optimization</h2>
+      <p>
+        Query execution plans rely on B-Tree indexing to eliminate full-table scans. Analogously, browser performance relies on resource hint preconnects and deferred asset execution to eliminate main-thread render stalls.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    // ANTI-PATTERN 6: Console spam and unthrottled DOM queries
+    console.log("Portal loaded with anti-patterns.");
+    function heavyDomSpam() {
+      for(var i = 0; i < 50; i++) {
+        console.log("Spamming console index: " + i);
+      }
+      alert("Action triggered! Check DevTools Network & Performance tab.");
+    }
+  </script>
+</body>
+</html>

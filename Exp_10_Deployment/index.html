@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full-Stack Application Deployment Guide & Live Dashboard - Web Development Lab Exp 10. Built by Dev Kumar Tiwari, 2nd Year B.Tech CSE (Data Science)." />
+  <title>Deployment Guide & Architecture — Web Dev Lab Exp 10 | Dev Kumar Tiwari</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Academic Announcement Bar -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container academic-content">
+      <div class="academic-badge">
+        <span>🎓 Web Development Lab &bull; Experiment 10: Full-Stack Deployment</span>
+      </div>
+      <div class="academic-sub">
+        <span>Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; <a href="../index.html">&larr; Lab Index</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-block">
+        <span class="tag-badge">Cloud Infrastructure &bull; CI/CD Pipelines &bull; Vercel &bull; Render</span>
+        <h1 class="main-title">Full-Stack Application Deployment</h1>
+        <p class="subtitle">
+          Architectural manual, platform evaluation, automated CI/CD lifecycle, environment security, and real-time live verification dashboard for all laboratory projects.
+        </p>
+      </div>
+      <div class="student-meta-card">
+        <div class="meta-row"><span>Student:</span><strong>Dev Kumar Tiwari</strong></div>
+        <div class="meta-row"><span>Program:</span><strong>2nd Year B.Tech CSE (Data Science)</strong></div>
+        <div class="meta-row"><span>GitHub:</span><a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a></div>
+        <div class="meta-row"><span>Vercel ID:</span><a href="https://vercel.com/httpd3v" target="_blank" rel="noopener noreferrer">@httpd3v</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- Section 1: Live Lab Deployment Registry -->
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <h2>🚀 Live Lab Production Registry</h2>
+          <p class="section-sub">Verified production deployments for Experiments 02 through 12 under Vercel account <code>@httpd3v</code>.</p>
+        </div>
+        <span class="badge-tag">100% Verified URLs</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="registry-table">
+          <thead>
+            <tr>
+              <th>Exp</th>
+              <th>Project Name</th>
+              <th>Target Architecture</th>
+              <th>Deployment Engine</th>
+              <th>Production URL</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>02</strong></td>
+              <td>Personal Portfolio</td>
+              <td>Static (HTML5, CSS3, JS)</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-02-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-02-portfolio.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>03</strong></td>
+              <td>Interactive To-Do List</td>
+              <td>Client DOM + LocalStorage</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-03-todo.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-03-todo.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>04</strong></td>
+              <td>SEO &amp; Accessibility Audit</td>
+              <td>Dual Build (Before / After)</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-04-seo-accessibility.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-04-seo-accessibility.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>05</strong></td>
+              <td>Real-Time Weather App</td>
+              <td>Fetch API + REST Integration</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-05-weather.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-05-weather.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>06</strong></td>
+              <td>Responsive Editorial Blog</td>
+              <td>Bootstrap 5 + Media Queries</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-06-responsive-blog.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-06-responsive-blog.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>07</strong></td>
+              <td>React Notes Single Page App</td>
+              <td>React 18 + Vite SPA Bundler</td>
+              <td>Vercel Static Auto-Build</td>
+              <td><a href="https://exp-07-react-notes.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-07-react-notes.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>08</strong></td>
+              <td>Book Management REST API</td>
+              <td>Node.js Express + Serverless</td>
+              <td>Vercel Serverless Functions</td>
+              <td><a href="https://exp-08-book-api.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-08-book-api.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>09</strong></td>
+              <td>User Authentication System</td>
+              <td>Node.js + JWT + bcryptjs</td>
+              <td>Vercel Serverless Functions</td>
+              <td><a href="https://exp-09-authentication.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-09-authentication.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td>Full-Stack Deployment Guide</td>
+              <td>Documentation &amp; CI/CD Hub</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-10-deployment.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-10-deployment.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td>Website Performance Optimization</td>
+              <td>Lighthouse Audit &amp; Asset Pipeline</td>
+              <td>Vercel Edge Network</td>
+              <td><a href="https://exp-11-web-optimization.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-11-web-optimization.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td>MERN Task Management App</td>
+              <td>React + Express + MongoDB Stack</td>
+              <td>Vercel Monorepo Serverless</td>
+              <td><a href="https://exp-12-mern-app.vercel.app" target="_blank" rel="noopener noreferrer" class="link-url">exp-12-mern-app.vercel.app</a></td>
+              <td><span class="status-live">● Live</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: Static vs Dynamic Architectures -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>⚖️ Static vs Dynamic Deployment Architecture</h2>
+      </div>
+      <div class="comparison-grid">
+        <div class="arch-card">
+          <div class="arch-badge static">Static Hosting (JAMstack / Edge)</div>
+          <h3>Static Sites &amp; SPAs</h3>
+          <p class="arch-desc">Pre-rendered HTML, CSS, JavaScript bundles, and static assets distributed over a Global Content Delivery Network (CDN).</p>
+          <ul class="arch-list">
+            <li><strong>Characteristics:</strong> Sub-50ms Time-to-First-Byte (TTFB), infinite scalability, zero database bottlenecks.</li>
+            <li><strong>Ideal Stacks:</strong> HTML5/CSS3, Vite + React, Next.js SSG, Astro, Hugo.</li>
+            <li><strong>Deployment Targets:</strong> Vercel Edge, Netlify, Cloudflare Pages, AWS S3 + CloudFront.</li>
+            <li><strong>Cost:</strong> Free tier indefinitely on most cloud vendors.</li>
+          </ul>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-badge dynamic">Dynamic Hosting (Container / PaaS)</div>
+          <h3>Dynamic Backends &amp; APIs</h3>
+          <p class="arch-desc">Long-running processes or serverless lambda handlers executing runtime business logic, querying databases, and parsing auth tokens.</p>
+          <ul class="arch-list">
+            <li><strong>Characteristics:</strong> Dynamic response generation per request, persistent socket connections, database connection pooling.</li>
+            <li><strong>Ideal Stacks:</strong> Express.js, Django, FastAPI, Spring Boot, NestJS.</li>
+            <li><strong>Deployment Targets:</strong> Render, Railway, Vercel Serverless Functions, AWS ECS/EC2.</li>
+            <li><strong>Cost:</strong> Free tiers often have cold starts (15-45s) or sleep after inactivity.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive CI/CD Visualizer -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>🔄 Modern Continuous Integration &amp; Deployment (CI/CD)</h2>
+        <span class="head-hint">Click any pipeline stage to inspect operations</span>
+      </div>
+
+      <div class="pipeline-container">
+        <div class="pipeline-step active" data-step="1">
+          <div class="step-num">1</div>
+          <div class="step-title">Git Push</div>
+          <div class="step-desc"><code>git push origin main</code></div>
+        </div>
+        <div class="pipeline-connector">&rarr;</div>
+        <div class="pipeline-step" data-step="2">
+          <div class="step-num">2</div>
+          <div class="step-title">Webhook Trigger</div>
+          <div class="step-desc">GitHub &rarr; Vercel Bot</div>
+        </div>
+        <div class="pipeline-connector">&rarr;</div>
+        <div class="pipeline-step" data-step="3">
+          <div class="step-num">3</div>
+          <div class="step-title">Build &amp; Bundle</div>
+          <div class="step-desc"><code>npm run build</code></div>
+        </div>
+        <div class="pipeline-connector">&rarr;</div>
+        <div class="pipeline-step" data-step="4">
+          <div class="step-num">4</div>
+          <div class="step-title">Env Injection</div>
+          <div class="step-desc">Secure secrets merge</div>
+        </div>
+        <div class="pipeline-connector">&rarr;</div>
+        <div class="pipeline-step" data-step="5">
+          <div class="step-num">5</div>
+          <div class="step-title">Global Edge CDN</div>
+          <div class="step-desc">Live production alias</div>
+        </div>
+      </div>
+
+      <div id="stepDetailBox" class="step-detail-box">
+        <h4>Stage 1: Git Version Control Push</h4>
+        <p>Developer commits verified changes locally and pushes to GitHub repository. Git triggers a signed HMAC webhook payload notifying the deployment orchestrator of a new commit SHA.</p>
+      </div>
+    </section>
+
+    <!-- Section 4: Cloud Platform Evaluation -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>☁️ Modern Cloud Platform Comparison Matrix</h2>
+      </div>
+      <div class="table-responsive">
+        <table class="registry-table platform-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Primary Strengths</th>
+              <th>Runtime Type</th>
+              <th>Free Tier Capabilities</th>
+              <th>CLI Experience</th>
+              <th>Suitability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Vercel</strong></td>
+              <td>Edge CDN, zero-config React/Vite/Next, instant preview URLs</td>
+              <td>Static + Serverless Edge Functions</td>
+              <td>Generous (100GB bandwidth, unlimited previews)</td>
+              <td><code>vercel deploy --prod</code></td>
+              <td><span class="badge-grade">Top Recommendation</span></td>
+            </tr>
+            <tr>
+              <td><strong>Render</strong></td>
+              <td>Containerized native web services, managed PostgreSQL</td>
+              <td>Docker / Native Node / Python</td>
+              <td>Free tier spins down after 15 min idle (cold start ~30s)</td>
+              <td>Git-push webhook integration</td>
+              <td><span class="badge-grade">Best for Express / DB</span></td>
+            </tr>
+            <tr>
+              <td><strong>Railway</strong></td>
+              <td>Instant database provisioning, multi-service canvas</td>
+              <td>Full Docker containers &amp; Nixpacks</td>
+              <td>$5 monthly credit grant, fast deployments</td>
+              <td><code>railway up</code></td>
+              <td><span class="badge-grade">Great for Microservices</span></td>
+            </tr>
+            <tr>
+              <td><strong>Netlify</strong></td>
+              <td>Form processing, split testing, serverless functions</td>
+              <td>JAMstack CDN + AWS Lambda proxy</td>
+              <td>100GB bandwidth, 300 build minutes</td>
+              <td><code>netlify deploy --prod</code></td>
+              <td><span class="badge-grade">Solid Static Choice</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: Pre & Post Deployment Verification Checklist -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>✅ Interactive Deployment Verification Checklist</h2>
+        <span class="head-hint">Progress saves automatically in your browser</span>
+      </div>
+
+      <div class="checklist-grid">
+        <div class="checklist-col">
+          <h3>Pre-Deployment Safeguards</h3>
+          <label class="check-item"><input type="checkbox" data-id="c1" /> Ensure <code>.env</code> is added to <code>.gitignore</code></label>
+          <label class="check-item"><input type="checkbox" data-id="c2" /> Provide clean <code>.env.example</code> with dummy placeholder keys</label>
+          <label class="check-item"><input type="checkbox" data-id="c3" /> Build locally with <code>npm run build</code> to catch syntax/JSX errors</label>
+          <label class="check-item"><input type="checkbox" data-id="c4" /> Use relative asset paths (e.g., <code>./assets/</code>) for nested directories</label>
+          <label class="check-item"><input type="checkbox" data-id="c5" /> Verify valid HTTP status codes on all backend controller routes</label>
+        </div>
+
+        <div class="checklist-col">
+          <h3>Post-Deployment Smoke Tests</h3>
+          <label class="check-item"><input type="checkbox" data-id="c6" /> Visit production HTTPS URL and check for valid SSL certificate</label>
+          <label class="check-item"><input type="checkbox" data-id="c7" /> Open Browser DevTools Console; confirm 0 mixed-content warnings</label>
+          <label class="check-item"><input type="checkbox" data-id="c8" /> Trigger live API calls to verify CORS allow-headers</label>
+          <label class="check-item"><input type="checkbox" data-id="c9" /> Test client routing refresh (verify rewrites redirect to index)</label>
+          <label class="check-item"><input type="checkbox" data-id="c10" /> Run Google Lighthouse to audit performance and accessibility</label>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; Web Development Lab Experiment 10</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

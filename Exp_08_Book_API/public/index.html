@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book Management RESTful API - Node.js Express CRUD endpoints and interactive documentation. Built by Dev Kumar Tiwari, 2nd Year B.Tech CSE (Data Science)." />
+  <title>Book Management REST API — Web Dev Lab Exp 08 | Dev Kumar Tiwari</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Academic Announcement Bar -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container academic-content">
+      <div class="academic-badge">
+        <span>🎓 Web Development Lab &bull; Experiment 08: RESTful API</span>
+      </div>
+      <div class="academic-sub">
+        <span>Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; <a href="../index.html">&larr; Lab Index</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-block">
+        <span class="tag-badge">Node.js + Express REST API</span>
+        <h1 class="main-title">Book Management Service</h1>
+        <p class="subtitle">
+          Complete CRUD REST architecture with JSON request/response payloads, status code discipline (200, 201, 400, 404), input validation, and interactive testing suite.
+        </p>
+      </div>
+      <div class="student-meta-card">
+        <div class="meta-row"><span>Student:</span><strong>Dev Kumar Tiwari</strong></div>
+        <div class="meta-row"><span>Program:</span><strong>2nd Year B.Tech CSE (Data Science)</strong></div>
+        <div class="meta-row"><span>GitHub:</span><a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a></div>
+        <div class="meta-row"><span>Vercel:</span><a href="https://vercel.com/httpd3v" target="_blank" rel="noopener noreferrer">@httpd3v</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- Interactive API Test Console -->
+    <section class="console-card">
+      <div class="card-head">
+        <h2>⚡ Interactive REST Client</h2>
+        <span class="head-hint">Execute real requests against the backend service</span>
+      </div>
+
+      <div class="console-body">
+        <!-- Quick Preset Buttons -->
+        <div class="presets-row">
+          <span class="presets-label">Quick Endpoints:</span>
+          <button class="preset-pill active" data-method="GET" data-url="/api/books">GET All Books</button>
+          <button class="preset-pill" data-method="GET" data-url="/api/books/1">GET Book #1</button>
+          <button class="preset-pill" data-method="GET" data-url="/api/books?genre=Data Science">Filter: Data Science</button>
+          <button class="preset-pill" data-method="POST" data-url="/api/books" data-body='{"title":"Hands-On Machine Learning","author":"Aurélien Géron","genre":"Machine Learning","year":2023,"isbn":"978-1098125974","available":true}'>POST New Book</button>
+          <button class="preset-pill" data-method="PUT" data-url="/api/books/2" data-body='{"title":"Database System Concepts (8th Ed)","available":false}'>PUT Update #2</button>
+          <button class="preset-pill" data-method="DELETE" data-url="/api/books/3">DELETE Book #3</button>
+        </div>
+
+        <!-- Request Builder -->
+        <div class="request-builder">
+          <div class="method-url-row">
+            <select id="reqMethod" class="method-select">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            <input type="text" id="reqUrl" class="url-input" value="/api/books" placeholder="/api/books" />
+            <button id="sendBtn" class="send-btn">Send Request &rarr;</button>
+          </div>
+
+          <!-- Request Body (Visible for POST/PUT) -->
+          <div id="bodyWrapper" class="body-wrapper" style="display: none;">
+            <label for="reqBody" class="field-label">JSON Request Payload:</label>
+            <textarea id="reqBody" class="json-textarea" rows="5" placeholder='{\n  "title": "Book Title",\n  "author": "Author Name"\n}'></textarea>
+          </div>
+        </div>
+
+        <!-- Response Viewer -->
+        <div class="response-viewer">
+          <div class="response-header">
+            <div class="resp-stats">
+              <span>Status: <strong id="respStatus" class="status-badge status-idle">Ready</strong></span>
+              <span>Time: <strong id="respTime">-</strong></span>
+              <span>Size: <strong id="respSize">-</strong></span>
+            </div>
+            <button id="copyRespBtn" class="copy-btn">Copy JSON</button>
+          </div>
+          <pre id="respOutput" class="code-block"><code>// Click "Send Request" or one of the quick presets above to test the REST API.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Endpoints Specification Table -->
+    <section class="docs-section">
+      <h2 class="section-title">API Endpoint Reference</h2>
+      <div class="table-card">
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Endpoint</th>
+              <th>Description</th>
+              <th>Parameters / Body</th>
+              <th>Success</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-method get">GET</span></td>
+              <td><code>/api/books</code></td>
+              <td>Retrieve all library books with optional query filtering</td>
+              <td><code>?genre=</code>, <code>?author=</code>, <code>?search=</code></td>
+              <td><span class="badge-code">200 OK</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge-method get">GET</span></td>
+              <td><code>/api/books/:id</code></td>
+              <td>Retrieve details of a single book by integer ID</td>
+              <td><code>id</code> (URL param)</td>
+              <td><span class="badge-code">200 OK</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge-method post">POST</span></td>
+              <td><code>/api/books</code></td>
+              <td>Add a new book (validates title &amp; author presence)</td>
+              <td>JSON: <code>title</code>, <code>author</code>, <code>genre</code>, <code>year</code>, <code>isbn</code></td>
+              <td><span class="badge-code">201 Created</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge-method put">PUT</span></td>
+              <td><code>/api/books/:id</code></td>
+              <td>Update fields of an existing book</td>
+              <td><code>id</code> (param) + JSON body of updated fields</td>
+              <td><span class="badge-code">200 OK</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge-method delete">DELETE</span></td>
+              <td><code>/api/books/:id</code></td>
+              <td>Remove a book by integer ID from the collection</td>
+              <td><code>id</code> (URL param)</td>
+              <td><span class="badge-code">200 OK</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- cURL / Postman Samples -->
+    <section class="samples-section">
+      <h2 class="section-title">cURL &amp; Testing Snippets</h2>
+      <div class="samples-grid">
+        <div class="sample-card">
+          <div class="sample-head">
+            <strong>1. Fetch All Books</strong>
+            <button class="copy-small-btn" onclick="copySnippet('curlGet')">Copy</button>
+          </div>
+          <pre class="snippet-block"><code id="curlGet">curl -X GET http://localhost:3000/api/books</code></pre>
+        </div>
+
+        <div class="sample-card">
+          <div class="sample-head">
+            <strong>2. Create Book (POST)</strong>
+            <button class="copy-small-btn" onclick="copySnippet('curlPost')">Copy</button>
+          </div>
+          <pre class="snippet-block"><code id="curlPost">curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Deep Learning","author":"Ian Goodfellow","genre":"AI","year":2016}'</code></pre>
+        </div>
+
+        <div class="sample-card">
+          <div class="sample-head">
+            <strong>3. Update Book (PUT)</strong>
+            <button class="copy-small-btn" onclick="copySnippet('curlPut')">Copy</button>
+          </div>
+          <pre class="snippet-block"><code id="curlPut">curl -X PUT http://localhost:3000/api/books/1 \
+  -H "Content-Type: application/json" \
+  -d '{"available":false}'</code></pre>
+        </div>
+
+        <div class="sample-card">
+          <div class="sample-head">
+            <strong>4. Delete Book (DELETE)</strong>
+            <button class="copy-small-btn" onclick="copySnippet('curlDelete')">Copy</button>
+          </div>
+          <pre class="snippet-block"><code id="curlDelete">curl -X DELETE http://localhost:3000/api/books/4</code></pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; Web Development Lab Experiment 08</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "exp-08-book-api",
+  "version": "1.0.0",
+  "description": "Book Management RESTful API - Web Development Lab Exp 08 by Dev Kumar Tiwari",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

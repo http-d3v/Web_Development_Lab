@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="User Authentication System with JWT and bcrypt - Web Development Lab Exp 09. Built by Dev Kumar Tiwari, 2nd Year B.Tech CSE (Data Science)." />
+  <title>User Authentication (JWT + bcrypt) — Web Dev Lab Exp 09 | Dev Kumar Tiwari</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Academic Announcement Bar -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container academic-content">
+      <div class="academic-badge">
+        <span>🎓 Web Development Lab &bull; Experiment 09: Authentication System</span>
+      </div>
+      <div class="academic-sub">
+        <span>Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; <a href="../index.html">&larr; Lab Index</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-block">
+        <span class="tag-badge">Node.js &bull; Express &bull; JWT &bull; bcryptjs</span>
+        <h1 class="main-title">User Authentication &amp; Authorization</h1>
+        <p class="subtitle">
+          Secure user registration, 10-round salted password hashing with bcrypt, JSON Web Token issuance, and header-based authorization for protected routes.
+        </p>
+      </div>
+      <div class="student-meta-card">
+        <div class="meta-row"><span>Student:</span><strong>Dev Kumar Tiwari</strong></div>
+        <div class="meta-row"><span>Specialization:</span><strong>2nd Year B.Tech CSE (Data Science)</strong></div>
+        <div class="meta-row"><span>GitHub:</span><a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a></div>
+        <div class="meta-row"><span>Vercel:</span><a href="https://vercel.com/httpd3v" target="_blank" rel="noopener noreferrer">@httpd3v</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- Auth / Dashboard Container -->
+    <div class="auth-grid">
+      
+      <!-- Left Column: Forms or Active Session -->
+      <section class="auth-box">
+        
+        <!-- Tab Navigation (Only shown when logged out) -->
+        <div id="authTabs" class="auth-tabs">
+          <button id="tabLogin" class="tab-btn active">Sign In</button>
+          <button id="tabRegister" class="tab-btn">Create Account</button>
+        </div>
+
+        <!-- Alert Notification Box -->
+        <div id="alertBox" class="alert-box" style="display: none;"></div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" id="loginEmail" class="form-input" placeholder="student@college.edu" required />
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" id="loginBtn" class="btn-submit">Sign In &rarr;</button>
+
+          <div class="quick-demo-box">
+            <span class="demo-title">Quick Demo Login:</span>
+            <button type="button" id="fillDemoBtn" class="btn-demo">Pre-fill Dev's Demo Account</button>
+          </div>
+        </form>
+
+        <!-- Register Form (Initially Hidden) -->
+        <form id="registerForm" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label for="regName" class="form-label">Full Name</label>
+            <input type="text" id="regName" class="form-input" placeholder="Dev Kumar Tiwari" required />
+          </div>
+
+          <div class="form-group">
+            <label for="regEmail" class="form-label">Academic Email</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="student@college.edu" required />
+          </div>
+
+          <div class="form-group">
+            <label for="regRole" class="form-label">Academic Role / Major</label>
+            <input type="text" id="regRole" class="form-input" value="2nd Year B.Tech CSE (Data Science)" required />
+          </div>
+
+          <div class="form-group">
+            <label for="regPassword" class="form-label">Password (Min. 6 characters)</label>
+            <input type="password" id="regPassword" class="form-input" placeholder="••••••••" minlength="6" required />
+          </div>
+
+          <button type="submit" id="regBtn" class="btn-submit">Create Account &rarr;</button>
+        </form>
+
+        <!-- Dashboard View (Shown when logged in) -->
+        <div id="dashboardView" class="dashboard-view" style="display: none;">
+          <div class="dashboard-header">
+            <div class="user-avatar" id="dashAvatar">DT</div>
+            <div>
+              <h3 id="dashName">Student User</h3>
+              <p id="dashEmail" class="user-sub">student@college.edu</p>
+            </div>
+            <button id="logoutBtn" class="btn-logout">Sign Out</button>
+          </div>
+
+          <div class="session-info">
+            <div class="info-row">
+              <span>Academic Role:</span>
+              <strong id="dashRole">B.Tech CSE (Data Science)</strong>
+            </div>
+            <div class="info-row">
+              <span>Token Status:</span>
+              <span class="badge-status-active">Active (HMAC-SHA256)</span>
+            </div>
+          </div>
+
+          <div class="protected-actions">
+            <h4>Protected Endpoints Test</h4>
+            <p class="section-hint">Calls require Authorization header: <code>Bearer &lt;token&gt;</code></p>
+            <div class="btn-row">
+              <button id="testProfileBtn" class="btn-action">GET /api/auth/profile</button>
+              <button id="testResourceBtn" class="btn-action">GET /api/auth/protected-resource</button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: JWT Token Inspector & Server Logs -->
+      <section class="inspector-box">
+        <div class="inspector-header">
+          <h3>Token &amp; Security Inspector</h3>
+          <span id="tokenStatusBadge" class="token-badge unauthenticated">No Token</span>
+        </div>
+
+        <div class="token-section">
+          <label class="inspector-label">Active JWT Token (Stored in LocalStorage):</label>
+          <pre id="tokenDisplay" class="token-pre"><code>// Authenticate to view your signed JWT payload.</code></pre>
+        </div>
+
+        <div class="token-section">
+          <label class="inspector-label">Decoded Payload Claims (Base64 JSON):</label>
+          <pre id="claimsDisplay" class="claims-pre"><code>{}</code></pre>
+        </div>
+
+        <div class="token-section">
+          <label class="inspector-label">API Response Output:</label>
+          <pre id="apiResponse" class="response-pre"><code>// Server responses will appear here.</code></pre>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Security Architecture Summary -->
+    <section class="security-architecture">
+      <h2 class="sec-title">Authentication Workflow &amp; Principles</h2>
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="principle-num">01</div>
+          <h3>Password Hashing</h3>
+          <p>Passwords are never stored in plaintext. They undergo 10 salt rounds with <code>bcryptjs</code>, rendering them resistant to rainbow table lookups.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">02</div>
+          <h3>Stateless JWTs</h3>
+          <p>Authentication tokens are cryptographically signed using HMAC-SHA256 with a private server secret, eliminating the need for server-side sessions.</p>
+        </div>
+        <div class="principle-card">
+          <div class="principle-num">03</div>
+          <h3>Bearer Auth Middleware</h3>
+          <p>Protected endpoints inspect the <code>Authorization</code> request header. Invalid, modified, or expired tokens receive an immediate <code>401 Unauthorized</code> response.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; Web Development Lab Experiment 09</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

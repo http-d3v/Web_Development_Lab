@@ -1,0 +1,42 @@
+[
+  {
+    "id": "task-101",
+    "title": "Complete Exp 12 MERN Stack Deployment & Documentation",
+    "description": "Finalize full-stack MongoDB Express React Node task manager with CRUD operations and responsive UI.",
+    "category": "Web Development",
+    "priority": "High",
+    "status": "In Progress",
+    "dueDate": "2026-11-15",
+    "createdAt": "2026-11-14T09:30:00.000Z"
+  },
+  {
+    "id": "task-102",
+    "title": "Implement Linear Regression on Housing Dataset in Python",
+    "description": "Perform feature engineering, min-max scaling, and compute MSE loss curve for Data Science lab evaluation.",
+    "category": "Data Science",
+    "priority": "High",
+    "status": "Completed",
+    "dueDate": "2026-11-13",
+    "createdAt": "2026-11-12T14:15:00.000Z"
+  },
+  {
+    "id": "task-103",
+    "title": "B-Tree and B+ Tree Indexing Theory Review",
+    "description": "Study disk block access optimization and multi-level index fan-out for upcoming DBMS mid-semester test.",
+    "category": "DBMS",
+    "priority": "Medium",
+    "status": "Pending",
+    "dueDate": "2026-11-18",
+    "createdAt": "2026-11-13T11:00:00.000Z"
+  },
+  {
+    "id": "task-104",
+    "title": "Graph Traversal Algorithms: BFS & Dijkstra",
+    "description": "Write clean C++ code for shortest path determination on weighted directed acyclic graphs.",
+    "category": "Data Structures",
+    "priority": "Medium",
+    "status": "Completed",
+    "dueDate": "2026-11-10",
+    "createdAt": "2026-11-09T16:45:00.000Z"
+  }
+]

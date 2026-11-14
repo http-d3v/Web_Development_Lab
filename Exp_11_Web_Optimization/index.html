@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website Performance Optimization Audit & Dashboard - Web Development Lab Exp 11. Built by Dev Kumar Tiwari, 2nd Year B.Tech CSE (Data Science)." />
+  <title>Website Performance Optimization — Web Dev Lab Exp 11 | Dev Kumar Tiwari</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Academic Announcement Bar -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="container academic-content">
+      <div class="academic-badge">
+        <span>🎓 Web Development Lab &bull; Experiment 11: Performance Optimization</span>
+      </div>
+      <div class="academic-sub">
+        <span>Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; <a href="../index.html">&larr; Lab Index</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-block">
+        <span class="tag-badge">Lighthouse &bull; Core Web Vitals &bull; Asset Pipeline</span>
+        <h1 class="main-title">Website Performance Optimization</h1>
+        <p class="subtitle">
+          Empirical comparison between unoptimized legacy anti-patterns and modern front-end performance techniques: minification, deferred scripts, layout shift elimination, and tree-shaking.
+        </p>
+      </div>
+      <div class="student-meta-card">
+        <div class="meta-row"><span>Student:</span><strong>Dev Kumar Tiwari</strong></div>
+        <div class="meta-row"><span>Program:</span><strong>2nd Year B.Tech CSE (Data Science)</strong></div>
+        <div class="meta-row"><span>GitHub:</span><a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer">@http-d3v</a></div>
+        <div class="meta-row"><span>Vercel ID:</span><a href="https://vercel.com/httpd3v" target="_blank" rel="noopener noreferrer">@httpd3v</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- Section 1: Lighthouse Core Web Vitals Summary -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>📊 Google Lighthouse Audit Scorecard</h2>
+        <span class="head-hint">Simulated mobile audit comparison</span>
+      </div>
+
+      <div class="scores-grid">
+        <div class="score-card">
+          <div class="score-category">Performance</div>
+          <div class="score-comparison">
+            <div class="score-pill before">42 / 100</div>
+            <div class="score-arrow">&rarr;</div>
+            <div class="score-pill after">98 / 100</div>
+          </div>
+          <p class="score-note">+56 pts via deferred JS, critical CSS &amp; lazy loading</p>
+        </div>
+
+        <div class="score-card">
+          <div class="score-category">Accessibility</div>
+          <div class="score-comparison">
+            <div class="score-pill before">68 / 100</div>
+            <div class="score-arrow">&rarr;</div>
+            <div class="score-pill after">100 / 100</div>
+          </div>
+          <p class="score-note">Semantic tags, color contrast &amp; proper alt descriptions</p>
+        </div>
+
+        <div class="score-card">
+          <div class="score-category">Best Practices</div>
+          <div class="score-comparison">
+            <div class="score-pill before">58 / 100</div>
+            <div class="score-arrow">&rarr;</div>
+            <div class="score-pill after">100 / 100</div>
+          </div>
+          <p class="score-note">Eliminated console errors and vulnerable libraries</p>
+        </div>
+
+        <div class="score-card">
+          <div class="score-category">SEO</div>
+          <div class="score-comparison">
+            <div class="score-pill before">62 / 100</div>
+            <div class="score-arrow">&rarr;</div>
+            <div class="score-pill after">100 / 100</div>
+          </div>
+          <p class="score-note">Mobile viewport meta tag &amp; descriptive page titles</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Before vs After Visual Comparison -->
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <h2>🔍 Interactive Side-by-Side Visual Inspection</h2>
+          <p class="section-sub">Live iframes rendering both versions directly in the browser.</p>
+        </div>
+        <div class="view-controls">
+          <button class="view-btn active" data-view="both">Side-by-Side</button>
+          <button class="view-btn" data-view="before">Before Only</button>
+          <button class="view-btn" data-view="after">After Only</button>
+        </div>
+      </div>
+
+      <div id="framesWrapper" class="frames-grid">
+        <!-- Before Frame -->
+        <div class="frame-col" id="colBefore">
+          <div class="frame-bar bar-before">
+            <span>❌ Before (Unoptimized)</span>
+            <a href="before.html" target="_blank" rel="noopener noreferrer">Open Direct &UpperRightArrow;</a>
+          </div>
+          <iframe src="before.html" class="preview-iframe" title="Before Optimization View"></iframe>
+        </div>
+
+        <!-- After Frame -->
+        <div class="frame-col" id="colAfter">
+          <div class="frame-bar bar-after">
+            <span>✅ After (Optimized)</span>
+            <a href="after.html" target="_blank" rel="noopener noreferrer">Open Direct &UpperRightArrow;</a>
+          </div>
+          <iframe src="after.html" class="preview-iframe" title="After Optimization View"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Technical Metrics Table -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>⚡ Concrete Performance Metrics Breakdown</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Web Metric</th>
+              <th>Before Optimization</th>
+              <th>After Optimization</th>
+              <th>Quantitative Delta</th>
+              <th>Optimization Mechanism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>First Contentful Paint (FCP)</strong></td>
+              <td><span class="val-poor">2.8 s</span></td>
+              <td><span class="val-good">0.7 s</span></td>
+              <td><span class="val-gain">-75.0%</span></td>
+              <td>Inlined critical CSS, eliminated render-blocking JS</td>
+            </tr>
+            <tr>
+              <td><strong>Largest Contentful Paint (LCP)</strong></td>
+              <td><span class="val-poor">4.1 s</span></td>
+              <td><span class="val-good">1.1 s</span></td>
+              <td><span class="val-gain">-73.1%</span></td>
+              <td>Preconnected Google Fonts, optimized vector assets</td>
+            </tr>
+            <tr>
+              <td><strong>Cumulative Layout Shift (CLS)</strong></td>
+              <td><span class="val-poor">0.28</span></td>
+              <td><span class="val-good">0.00</span></td>
+              <td><span class="val-gain">100% stable</span></td>
+              <td>Explicit width/height &amp; aspect-ratio on images</td>
+            </tr>
+            <tr>
+              <td><strong>Total Blocking Time (TBT)</strong></td>
+              <td><span class="val-poor">480 ms</span></td>
+              <td><span class="val-good">15 ms</span></td>
+              <td><span class="val-gain">-96.8%</span></td>
+              <td>Removed 85KB jQuery; vanilla native event listeners</td>
+            </tr>
+            <tr>
+              <td><strong>CSS Payload Size</strong></td>
+              <td><span class="val-poor">28.4 KB</span></td>
+              <td><span class="val-good">1.9 KB</span></td>
+              <td><span class="val-gain">-93.3%</span></td>
+              <td>Purged 40+ unused CSS rules, minified whitespace</td>
+            </tr>
+            <tr>
+              <td><strong>Total HTTP Requests</strong></td>
+              <td><span class="val-poor">8 requests</span></td>
+              <td><span class="val-good">3 requests</span></td>
+              <td><span class="val-gain">-62.5%</span></td>
+              <td>Asset bundling, eliminated external jQuery CDN call</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: 8-Point Technique Reference -->
+    <section class="section-card">
+      <div class="section-head">
+        <h2>🛠️ 8 Key Optimization Techniques Applied</h2>
+      </div>
+
+      <div class="techniques-grid">
+        <div class="tech-card">
+          <div class="tech-num">01</div>
+          <h3>Eliminate Render-Blocking JS</h3>
+          <p>Replaced synchronous <code>&lt;script src="..."&gt;</code> tags in the document head with <code>&lt;script defer&gt;</code>, allowing HTML parsing to proceed unhindered.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">02</div>
+          <h3>Critical Path CSS Inlining</h3>
+          <p>Extracted above-the-fold layout styles and placed them inside a minified <code>&lt;style&gt;</code> block to render text immediately without external CSS roundtrips.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">03</div>
+          <h3>Purge Unused CSS (Dead Code)</h3>
+          <p>Audited style sheets to purge unused carousel, sidebar, and legacy selectors, slashing CSS payload by 93%.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">04</div>
+          <h3>Preconnect Resource Hints</h3>
+          <p>Injected <code>&lt;link rel="preconnect"&gt;</code> for Google Fonts, initiating early DNS lookup and TLS handshakes in parallel with HTML download.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">05</div>
+          <h3>Font-Display: Swap</h3>
+          <p>Added <code>&amp;display=swap</code> to web font requests to avoid Flash of Invisible Text (FOIT) while custom fonts download.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">06</div>
+          <h3>Layout Shift Elimination (CLS)</h3>
+          <p>Hard-coded explicit <code>width</code>, <code>height</code>, and CSS <code>aspect-ratio</code> rules so the browser pre-reserves space for images before bytes download.</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">07</div>
+          <h3>Dependency Deprecation</h3>
+          <p>Replaced heavyweight 85KB jQuery library with modern standard Vanilla JavaScript (<code>querySelector</code>, <code>addEventListener</code>).</p>
+        </div>
+
+        <div class="tech-card">
+          <div class="tech-num">08</div>
+          <h3>Console Noise Elimination</h3>
+          <p>Stripped debug <code>console.log()</code> loops, saving CPU cycles and preventing DevTools thread overhead in client runtimes.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; Web Development Lab Experiment 11</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

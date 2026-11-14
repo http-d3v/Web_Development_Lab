@@ -1,8 +1,8 @@
 # Experiment 05: Real-Time Weather Application
 
-**Course:** B.Tech Computer Science & Engineering — Web Development Laboratory  
+**Course:** B.Tech CSE (Data Science) — Web Development Laboratory  
 **Author:** Dev Kumar Tiwari ([@http-d3v](https://github.com/http-d3v))  
-**Academic Year:** 3rd Year (VI Semester)  
+**Academic Year:** 2nd Year (IV Semester)  
 **Live URL:** [https://exp-05-weather.vercel.app](https://exp-05-weather.vercel.app)  
 **GitHub Repository:** [https://github.com/http-d3v/Web_Development_Lab](https://github.com/http-d3v/Web_Development_Lab)  
 

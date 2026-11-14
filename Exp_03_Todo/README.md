@@ -1,8 +1,8 @@
 # Experiment 03: Interactive To-Do List Application
 
-**Course:** B.Tech Computer Science & Engineering — Web Development Laboratory  
+**Course:** B.Tech CSE (Data Science) — Web Development Laboratory  
 **Author:** Dev Kumar Tiwari ([@http-d3v](https://github.com/http-d3v))  
-**Academic Year:** 3rd Year (VI Semester)  
+**Academic Year:** 2nd Year (IV Semester)  
 **Live URL:** [https://exp-03-todo.vercel.app](https://exp-03-todo.vercel.app)  
 **GitHub Repository:** [https://github.com/http-d3v/Web_Development_Lab](https://github.com/http-d3v/Web_Development_Lab)  
 

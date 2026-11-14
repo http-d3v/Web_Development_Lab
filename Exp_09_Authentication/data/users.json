@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Dev Kumar Tiwari",
+    "email": "dev.cse.ds@college.edu",
+    "role": "Student Developer",
+    "program": "2nd Year B.Tech CSE (Data Science)",
+    "passwordHash": "$2a$10$V04G7Uq1vQWJ54M4k7z/c.qS0BvZ1mZ1.c41.Xv17eE.d4E/m0u6W",
+    "createdAt": "2026-11-14T10:00:00.000Z"
+  }
+]
