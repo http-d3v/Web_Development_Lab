@@ -7,4 +7,8 @@ server/.env
 *.log
 .vscode/
 
+# Allow client build output to be committed for Vercel static serving
+!client/dist/
+!client/dist/**
+
 .vercel
