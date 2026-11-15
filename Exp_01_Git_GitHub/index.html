@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Experiment 01: Git, GitHub repository setup, branching, merging, and GitHub Pages hosting. Web Designing Lab (JCS 308/408) by Dev Kumar Tiwari." />
+  <meta name="author" content="Dev Kumar Tiwari" />
+  <title>Experiment 01: Git, GitHub &amp; Pages Hosting | Dev Kumar Tiwari</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= Academic Header Bar ================= -->
+  <aside class="academic-bar" aria-label="Course Header">
+    <div class="bar-content">
+      <span>🎓 Web Designing Lab &bull; <strong>Experiment 01: Git, GitHub &amp; Static Hosting</strong> &bull; Subject Code: JCS 308/408</span>
+      <div class="bar-links">
+        <a href="../index.html" class="bar-link">&larr; Lab Index</a>
+        <span>|</span>
+        <a href="https://exp-02-portfolio.vercel.app" class="bar-link">Exp 02: Portfolio &rarr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= Layout Container ================= -->
+  <main class="container">
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="badge-row">
+        <span class="badge">Week 1 &bull; Experiment 01</span>
+        <span class="badge olive">Version Control &bull; Git &bull; GitHub Pages</span>
+      </div>
+      <h1 class="page-title">Git Branching, Collaboration &amp; GitHub Pages</h1>
+      <p class="page-lead">
+        A hands-on reference and interactive simulator for version control fundamentals: repository initialization, isolated branch development, merge strategies, and automated static website hosting via GitHub Pages.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>Student Name</strong>
+          Dev Kumar Tiwari
+        </div>
+        <div class="meta-item">
+          <strong>Academic Profile</strong>
+          2nd Year B.Tech CSE (Data Science)
+        </div>
+        <div class="meta-item">
+          <strong>Institution</strong>
+          JSS University, Noida
+        </div>
+        <div class="meta-item">
+          <strong>GitHub &amp; Vercel</strong>
+          <a href="https://github.com/http-d3v" target="_blank" rel="noopener noreferrer" style="color: var(--accent-terracotta); text-decoration: none; font-weight: 600;">@http-d3v</a> &bull; 
+          <a href="https://vercel.com/httpd3v" target="_blank" rel="noopener noreferrer" style="color: var(--accent-terracotta); text-decoration: none; font-weight: 600;">@httpd3v</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Interactive Git Graph Simulator -->
+    <section class="section">
+      <div class="section-head">
+        <span class="section-num">01.</span>
+        <h2 class="section-title">Interactive Git Branch &amp; Commit Simulator</h2>
+      </div>
+
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Click the commands below to see how Git branches, commits, and merges update the Directed Acyclic Graph (DAG) and the terminal in real time.
+      </p>
+
+      <div class="visualizer-card">
+        <div class="vis-header">
+          <div class="vis-title">
+            <span>🌿 Git Commit Graph Visualizer</span>
+          </div>
+          <div class="branch-pills" id="branchPills">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <div class="graph-container">
+          <svg class="git-graph-svg" id="gitGraphSvg" viewBox="0 0 600 150">
+            <!-- Rendered by app.js -->
+          </svg>
+        </div>
+
+        <!-- Terminal Feed -->
+        <div class="terminal-window" id="terminalLog" aria-label="Simulated Terminal Window">
+          <!-- Terminal log output injected dynamically -->
+        </div>
+
+        <!-- Interactive Controls -->
+        <div class="vis-controls">
+          <button class="ctrl-btn" onclick="gitAction('branch')">
+            <span>🌿</span> <code>git checkout -b feature/navbar</code>
+          </button>
+          <button class="ctrl-btn" onclick="gitAction('commit')">
+            <span>💾</span> <code>git commit -m "..."</code>
+          </button>
+          <button class="ctrl-btn" onclick="gitAction('checkout_main')">
+            <span>🔄</span> <code>git checkout main</code>
+          </button>
+          <button class="ctrl-btn primary" onclick="gitAction('merge')">
+            <span>🔀</span> <code>git merge feature/navbar</code>
+          </button>
+          <button class="ctrl-btn" onclick="gitAction('push')">
+            <span>🚀</span> <code>git push origin main</code>
+          </button>
+          <button class="ctrl-btn" onclick="gitAction('pages')">
+            <span>🌐</span> Deploy to GitHub Pages
+          </button>
+          <button class="ctrl-btn reset" onclick="gitAction('reset')" title="Reset simulation">
+            ↺ Reset Graph
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Step-by-Step Lab Walkthrough -->
+    <section class="section">
+      <div class="section-head">
+        <span class="section-num">02.</span>
+        <h2 class="section-title">Step-by-Step Practical Implementation</h2>
+      </div>
+
+      <!-- Step 1 -->
+      <article class="step-card">
+        <h3 class="step-title">
+          <span class="step-badge">STEP 1</span>
+          Initializing Local Repository and Configuring Remotes
+        </h3>
+        <p class="step-desc">
+          Create the project folder, initialize a fresh Git repository, verify `.gitignore`, and link the local directory to the remote repository on GitHub.
+        </p>
+        <div class="code-box">
+          <button class="code-copy-btn" onclick="copySnippet(this, 'codeStep1')">Copy</button>
+          <pre id="codeStep1"># Initialize local repository and set default branch to main
+git init -b main
+
+# Add all files to the staging area (index)
+git add .
+
+# Create the first root commit
+git commit -m "feat: initial commit with project structure and static site files"
+
+# Connect the remote GitHub repository
+git remote add origin https://github.com/http-d3v/Web_Development_Lab.git
+
+# Verify configured remote URLs
+git remote -v</pre>
+        </div>
+        <div class="step-notes">
+          <strong>Tip:</strong> Always create a clean <code>.gitignore</code> before staging files to avoid pushing <code>node_modules/</code>, logs, or system cache files like <code>.DS_Store</code>.
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step-card">
+        <h3 class="step-title">
+          <span class="step-badge">STEP 2</span>
+          Feature Branching and Isolated Development
+        </h3>
+        <p class="step-desc">
+          Never develop experimental features directly on the <code>main</code> branch. Creating a dedicated feature branch isolates your code so broken experiments do not disrupt the production deployment.
+        </p>
+        <div class="code-box">
+          <button class="code-copy-btn" onclick="copySnippet(this, 'codeStep2')">Copy</button>
+          <pre id="codeStep2"># Create and switch to a new feature branch
+git checkout -b feature/portfolio-cards
+
+# Check which branch is active (indicated by asterisk *)
+git branch
+
+# Make changes to HTML/CSS files, then stage and commit
+git add index.html style.css
+git commit -m "feat(portfolio): add responsive card grid and styling"</pre>
+        </div>
+        <div class="step-notes">
+          <strong>Under the Hood:</strong> A Git branch is just a 41-byte pointer to a commit hash. Switching branches updates the <code>.git/HEAD</code> file to point to the new ref.
+        </div>
+      </article>
+
+      <!-- Step 3 -->
+      <article class="step-card">
+        <h3 class="step-title">
+          <span class="step-badge">STEP 3</span>
+          Merging Feature Branch into Main
+        </h3>
+        <p class="step-desc">
+          Once the feature is tested and verified, switch back to <code>main</code> and merge the changes. If no divergent commits exist on main, Git performs a clean fast-forward merge.
+        </p>
+        <div class="code-box">
+          <button class="code-copy-btn" onclick="copySnippet(this, 'codeStep3')">Copy</button>
+          <pre id="codeStep3"># Switch back to the production branch
+git checkout main
+
+# Merge the completed feature into main
+git merge feature/portfolio-cards
+
+# Push the merged history to GitHub
+git push origin main
+
+# Delete the feature branch locally once merged
+git branch -d feature/portfolio-cards</pre>
+        </div>
+        <div class="step-notes">
+          <strong>Conflict Resolution:</strong> If both branches modified the same line, Git pauses the merge. Open the file, resolve conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>), stage with <code>git add</code>, and run <code>git commit</code>.
+        </div>
+      </article>
+
+      <!-- Step 4 -->
+      <article class="step-card">
+        <h3 class="step-title">
+          <span class="step-badge">STEP 4</span>
+          Configuring GitHub Pages for Static Site Hosting
+        </h3>
+        <p class="step-desc">
+          GitHub Pages provides free static hosting for web applications directly from a branch in your repository.
+        </p>
+        <div class="code-box">
+          <button class="code-copy-btn" onclick="copySnippet(this, 'codeStep4')">Copy</button>
+          <pre id="codeStep4">1. Navigate to repository on GitHub: github.com/http-d3v/Web_Development_Lab
+2. Click on "Settings" tab in the top navigation bar.
+3. In the left sidebar, click "Pages" under the "Code and automation" section.
+4. Under "Build and deployment" &gt; "Source", select "Deploy from a branch".
+5. Set Branch to: "main" and folder to: "/ (root)" (or "/docs" if configured).
+6. Click "Save". GitHub Actions will automatically build and deploy.
+7. Deployed site URL: https://http-d3v.github.io/Web_Development_Lab/</pre>
+        </div>
+        <div class="step-notes">
+          <strong>Enforce HTTPS:</strong> Always check the "Enforce HTTPS" checkbox in the GitHub Pages settings to ensure all traffic is encrypted with SSL.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Section 3: Git Command Cheat Sheet -->
+    <section class="section">
+      <div class="section-head">
+        <span class="section-num">03.</span>
+        <h2 class="section-title">Core Git Command Reference</h2>
+      </div>
+
+      <div class="table-wrap">
+        <table class="cmd-table">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>Category</th>
+              <th>Description &amp; Practical Use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>git init -b main</code></td>
+              <td>Setup</td>
+              <td>Initializes a new Git repository with default branch named <code>main</code>.</td>
+            </tr>
+            <tr>
+              <td><code>git clone &lt;url&gt;</code></td>
+              <td>Setup</td>
+              <td>Clones an existing remote repository onto your local development machine.</td>
+            </tr>
+            <tr>
+              <td><code>git status</code></td>
+              <td>Inspection</td>
+              <td>Displays modified, untracked, and staged files in the working directory.</td>
+            </tr>
+            <tr>
+              <td><code>git add -A</code></td>
+              <td>Staging</td>
+              <td>Stages all new, modified, and deleted files ready for commit.</td>
+            </tr>
+            <tr>
+              <td><code>git commit -m "msg"</code></td>
+              <td>Recording</td>
+              <td>Records a snapshot of the staged changes with a descriptive commit message.</td>
+            </tr>
+            <tr>
+              <td><code>git branch -a</code></td>
+              <td>Branching</td>
+              <td>Lists all local and remote tracking branches in the repository.</td>
+            </tr>
+            <tr>
+              <td><code>git checkout -b &lt;name&gt;</code></td>
+              <td>Branching</td>
+              <td>Creates a new branch and immediately checks it out (switches to it).</td>
+            </tr>
+            <tr>
+              <td><code>git merge &lt;branch&gt;</code></td>
+              <td>Integration</td>
+              <td>Merges the specified branch's commits into the currently checked-out branch.</td>
+            </tr>
+            <tr>
+              <td><code>git log --oneline --graph</code></td>
+              <td>History</td>
+              <td>Shows a compact visual ASCII tree of the commit history and branch merges.</td>
+            </tr>
+            <tr>
+              <td><code>git push -u origin &lt;branch&gt;</code></td>
+              <td>Remote</td>
+              <td>Pushes commits to GitHub and sets up upstream tracking for future simple <code>git push</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        &copy; 2026 Dev Kumar Tiwari &bull; 2nd Year B.Tech CSE (Data Science) &bull; JSS University, Noida
+      </p>
+      <p style="margin-top: 0.35rem;">
+        Web Designing Lab (JCS 308/408) &bull; Experiment 01: Git, GitHub &amp; Static Hosting
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

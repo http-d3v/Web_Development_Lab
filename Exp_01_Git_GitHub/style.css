@@ -1,0 +1,506 @@
+/* ==========================================================================
+   EXPERIMENT 01: GIT, GITHUB & GITHUB PAGES HOSTING
+   Student: Dev Kumar Tiwari (@http-d3v | @httpd3v)
+   Course: B.Tech CSE (Data Science) - 2nd Year
+   Subject: Web Designing Lab (JCS 308/408)
+   Design System: Warm Editorial Minimalist (#FDFBF7, #F4EFE6, #2C2522, #A25E3E)
+   ========================================================================== */
+
+:root {
+  --bg-base: #FDFBF7;
+  --bg-surface: #F4EFE6;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FAF7F2;
+  --bg-terminal: #231F1D;
+  --text-terminal: #EFE9E1;
+
+  --text-primary: #2C2522;
+  --text-secondary: #655953;
+  --text-muted: #8F827A;
+
+  --accent-terracotta: #A25E3E;
+  --accent-hover: #864A2E;
+  --accent-olive: #48604F;
+  --accent-olive-bg: #EEF4F0;
+  --accent-amber: #B88338;
+  --accent-amber-bg: #FCF5EB;
+  --accent-blue: #3E6B89;
+  --accent-blue-bg: #EDF4F8;
+
+  --border-light: #E7DECF;
+  --border-subtle: #EDE4D7;
+  --border-focus: #A25E3E;
+
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --container-width: 960px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= Academic Bar ================= */
+.academic-bar {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.bar-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bar-link {
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.bar-link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ================= Layout Container ================= */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+/* ================= Header Section ================= */
+.page-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1.75rem;
+}
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background-color: var(--bg-surface);
+  color: var(--accent-terracotta);
+  border: 1px solid var(--border-light);
+}
+
+.badge.olive {
+  background-color: var(--accent-olive-bg);
+  color: var(--accent-olive);
+  border-color: #D6E4DB;
+}
+
+.page-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.page-lead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 820px;
+  line-height: 1.65;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  font-size: 0.85rem;
+}
+
+.meta-item strong {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+
+/* ================= Section Header ================= */
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* ================= Interactive Visualizer ================= */
+.visualizer-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(44, 37, 34, 0.04);
+  margin-bottom: 2rem;
+}
+
+.vis-header {
+  background-color: var(--bg-surface);
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.vis-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.branch-pills {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.branch-pill {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  font-weight: 600;
+}
+
+.branch-pill.current {
+  background-color: var(--accent-terracotta);
+  color: #FFF;
+  border-color: var(--accent-terracotta);
+}
+
+/* Canvas / Tree Area */
+.graph-container {
+  padding: 1.5rem;
+  background-color: #FAF8F4;
+  overflow-x: auto;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+}
+
+.git-graph-svg {
+  min-width: 600px;
+  width: 100%;
+  height: 150px;
+}
+
+/* Interactive Controls */
+.vis-controls {
+  padding: 1.25rem;
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.ctrl-btn {
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ctrl-btn:hover {
+  background-color: #ECE5DA;
+  border-color: var(--border-focus);
+}
+
+.ctrl-btn.primary {
+  background-color: var(--accent-terracotta);
+  color: #FFF;
+  border-color: var(--accent-terracotta);
+}
+
+.ctrl-btn.primary:hover {
+  background-color: var(--accent-hover);
+}
+
+.ctrl-btn.reset {
+  margin-left: auto;
+  color: var(--text-muted);
+}
+
+/* Live Terminal Log */
+.terminal-window {
+  background-color: var(--bg-terminal);
+  color: var(--text-terminal);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #36302D;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.terminal-line {
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.terminal-line.cmd {
+  color: #F8D88A;
+}
+
+.terminal-line.success {
+  color: #8FD89F;
+}
+
+.terminal-line.info {
+  color: #9ECBF2;
+}
+
+/* ================= Guide Steps ================= */
+.step-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  box-shadow: 0 4px 12px rgba(44, 37, 34, 0.04);
+}
+
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.step-badge {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background-color: var(--bg-surface);
+  color: var(--accent-terracotta);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.step-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Code Snippet Box */
+.code-box {
+  background-color: #24201E;
+  color: #FAF4EB;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  overflow-x: auto;
+  position: relative;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.code-box pre {
+  margin: 0;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #E2DAD0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.code-copy-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFF;
+}
+
+.step-notes {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background-color: var(--bg-surface);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent-terracotta);
+}
+
+/* ================= Command Cheat Table ================= */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+}
+
+.cmd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.cmd-table th {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cmd-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.cmd-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cmd-table code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  background-color: var(--bg-surface);
+  color: var(--accent-terracotta);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ================= Footer ================= */
+.page-footer {
+  text-align: center;
+  padding: 2.5rem 1rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  margin-top: 3rem;
+}
+
+.page-footer a {
+  color: var(--accent-terracotta);
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .page-title {
+    font-size: 1.7rem;
+  }
+  .vis-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ctrl-btn.reset {
+    margin-left: 0;
+  }
+}

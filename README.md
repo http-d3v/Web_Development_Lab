@@ -1,6 +1,6 @@
-# Web Development Laboratory (B.Tech CSE - Data Science &bull; 2nd Year)
+# Web Designing Laboratory — JCS 308/408 (B.Tech CSE - Data Science &bull; 2nd Year)
 
-Welcome to the comprehensive laboratory repository for **Web Development Laboratory** (Experiments 02 – 12), created by **Dev Kumar Tiwari** ([GitHub @http-d3v](https://github.com/http-d3v) &bull; [Vercel @httpd3v](https://vercel.com/httpd3v)), **2nd Year B.Tech Computer Science & Engineering (Data Science)**.
+Welcome to the comprehensive laboratory repository for **Web Designing Laboratory** (Subject Code: **JCS 308/408**, LTP: 0-1-2, Experiments 01 – 12), created by **Dev Kumar Tiwari** ([GitHub @http-d3v](https://github.com/http-d3v) &bull; [Vercel @httpd3v](https://vercel.com/httpd3v)), **2nd Year B.Tech Computer Science & Engineering (Data Science)** at **JSS University, Noida**.
 
 This repository maintains separate, working, production-quality projects for every laboratory experiment, following a warm, minimal, student-made aesthetic (`#FDFBF7`, `#F4EFE6`, `#2C2522`) without artificial or AI-generated styling.
 
@@ -10,6 +10,7 @@ This repository maintains separate, working, production-quality projects for eve
 
 | Exp # | Experiment Title | Core Technologies | Status | Directory |
 |:---:|:---|:---|:---:|:---|
+| **01** | **Git, GitHub & GitHub Pages Hosting** | Git, CLI, Branching, Merging, GitHub Pages | ✅ **Completed** | [`Exp_01_Git_GitHub/`](./Exp_01_Git_GitHub/) |
 | **02** | **Personal Portfolio Website** | HTML5, CSS3, Flexbox, Grid | ✅ **Completed** | [`Exp_02_Portfolio/`](./Exp_02_Portfolio/) |
 | **03** | **Interactive To-Do List Application** | HTML, CSS, JavaScript, DOM, LocalStorage | ✅ **Completed** | [`Exp_03_Todo/`](./Exp_03_Todo/) |
 | **04** | **SEO & Accessibility Audit & Overhaul** | Semantic HTML5, WCAG 2.1, ARIA, Meta Tags | ✅ **Completed** | [`Exp_04_SEO_Accessibility/`](./Exp_04_SEO_Accessibility/) |
@@ -40,6 +41,7 @@ This repository maintains separate, working, production-quality projects for eve
 
 ## 🚀 Live Demonstrations (Vercel Account: @httpd3v)
 - **Central Lab Portal (All Experiments):** [https://web-development-lab-nu.vercel.app](https://web-development-lab-nu.vercel.app)
+- **Exp 01 (Git, GitHub & Pages):** [https://exp-01-git-github.vercel.app](https://exp-01-git-github.vercel.app)
 - **Exp 02 (Personal Portfolio):** [https://exp-02-portfolio.vercel.app](https://exp-02-portfolio.vercel.app)
 - **Exp 03 (Interactive To-Do List):** [https://exp-03-todo.vercel.app](https://exp-03-todo.vercel.app)
 - **Exp 04 (SEO & Web Accessibility):** [https://exp-04-seo-accessibility.vercel.app](https://exp-04-seo-accessibility.vercel.app)
