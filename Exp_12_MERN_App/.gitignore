@@ -10,5 +10,7 @@ server/.env
 # Allow client build output to be committed for Vercel static serving
 !client/dist/
 !client/dist/**
+!public/
+!public/**
 
 .vercel

@@ -94,7 +94,8 @@ export default function App() {
 
   // Create Task
   const handleAddTask = async (taskData) => {
-    const tempTask = { ...taskData, id: 'task-' + Date.now() }
+    const tempId = 'task-' + Date.now()
+    const tempTask = { ...taskData, id: tempId, _id: tempId }
     setTasks([tempTask, ...tasks])
 
     try {
@@ -106,7 +107,8 @@ export default function App() {
       if (res.ok) {
         const json = await res.json()
         if (json.success && json.data) {
-          setTasks(prev => [json.data, ...prev.filter(t => t.id !== tempTask.id)])
+          const created = json.data
+          setTasks(prev => [created, ...prev.filter(t => (t.id || t._id) !== tempId)])
         }
       }
     } catch (err) {
@@ -116,7 +118,7 @@ export default function App() {
 
   // Update Status
   const handleUpdateStatus = async (id, newStatus) => {
-    setTasks(tasks.map(t => t.id === id ? { ...t, status: newStatus } : t))
+    setTasks(tasks.map(t => ((t.id || t._id) === id ? { ...t, status: newStatus } : t)))
 
     try {
       await fetch(`/api/tasks/${id}`, {
@@ -131,11 +133,12 @@ export default function App() {
 
   // Save Edit
   const handleSaveEdit = async (updated) => {
-    setTasks(tasks.map(t => t.id === updated.id ? updated : t))
+    const editId = updated.id || updated._id
+    setTasks(tasks.map(t => ((t.id || t._id) === editId ? updated : t)))
     setEditingTask(null)
 
     try {
-      await fetch(`/api/tasks/${updated.id}`, {
+      await fetch(`/api/tasks/${editId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated)
@@ -148,7 +151,7 @@ export default function App() {
   // Delete Task
   const handleDeleteTask = async (id) => {
     if (!window.confirm('Are you sure you want to delete this task?')) return
-    setTasks(tasks.filter(t => t.id !== id))
+    setTasks(tasks.filter(t => (t.id || t._id) !== id))
 
     try {
       await fetch(`/api/tasks/${id}`, { method: 'DELETE' })
@@ -158,19 +161,20 @@ export default function App() {
   }
 
   // Computed metrics
-  const total = tasks.length
-  const completed = tasks.filter(t => t.status === 'Completed').length
-  const inProgress = tasks.filter(t => t.status === 'In Progress').length
-  const pending = tasks.filter(t => t.status === 'Pending').length
+  const total = Array.isArray(tasks) ? tasks.length : 0
+  const completed = Array.isArray(tasks) ? tasks.filter(t => t.status === 'Completed').length : 0
+  const inProgress = Array.isArray(tasks) ? tasks.filter(t => t.status === 'In Progress').length : 0
+  const pending = Array.isArray(tasks) ? tasks.filter(t => t.status === 'Pending').length : 0
 
   // Filter tasks
-  const filteredTasks = tasks.filter(t => {
+  const filteredTasks = (Array.isArray(tasks) ? tasks : []).filter(t => {
+    if (!t) return false
     const matchesStatus = statusFilter === 'All' || t.status === statusFilter
     const q = searchQuery.toLowerCase().trim()
     const matchesQuery = !q || 
-      t.title.toLowerCase().includes(q) || 
+      (t.title && t.title.toLowerCase().includes(q)) || 
       (t.description && t.description.toLowerCase().includes(q)) ||
-      t.category.toLowerCase().includes(q)
+      (t.category && t.category.toLowerCase().includes(q))
     return matchesStatus && matchesQuery
   })
 
@@ -223,9 +227,9 @@ export default function App() {
           </div>
         ) : (
           <div className="tasks-grid">
-            {filteredTasks.map((task) => (
+            {filteredTasks.map((task, idx) => (
               <TaskCard
-                key={task.id}
+                key={task.id || task._id || `task-${idx}`}
                 task={task}
                 onUpdateStatus={handleUpdateStatus}
                 onEdit={setEditingTask}
